@@ -1,0 +1,33 @@
+/* Palette::main::B34UTY-S133P */
+.b34uty-s133p {
+    --background: oklch(0 0 0);
+    --text: oklch(0.625 0.217 352.4);
+    --accent: oklch(0.367 0.057 261.3);
+    --secondary: oklch(0.489 0.041 187);
+    --tertiary: oklch(0.305 0.089 270.8);
+}
+
+/* Palette::alternative::agent */
+.agent {
+    --background: oklch(0.189 0.006 236.9);
+    --text: oklch(0.954 0.032 145.3);
+    --accent: oklch(0.417 0.009 164.6);
+    --secondary: oklch(0.648 0.139 143.8);
+}
+
+/* Palette::alternative2::digital-paper */
+.digital-paper {
+    --background: oklch(0.115 0 0);
+    --text: oklch(0.97 0 0);
+    --accent: oklch(0.704 0.023 223.1);
+    --secondary: oklch(0.455 0.046 268.8);
+}
+
+/* Palette::alternative3::souless */
+.souless {
+    --background: oklch(0.238 0.06 265.7);
+    --text: oklch(0.93 0.035 17.8);
+    --accent: oklch(0.931 0.047 222);
+    --secondary: oklch(0.914 0.152 149.5);
+    --tertiary: oklch(0.931 0.153 134.9);
+}

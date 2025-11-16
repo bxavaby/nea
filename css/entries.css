@@ -1,0 +1,165 @@
+@import url("../fonts/fonts.css");
+
+body {
+    font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
+    background: var(--background);
+    color: var(--text);
+    max-width: 100% !important;
+    margin: 2rem 0;
+    padding: 0 1rem 3rem 1rem;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--tertiary);
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s;
+}
+
+.back-link:hover,
+.back-link:focus {
+    color: var(--accent);
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "DepartureMono", monospace;
+    font-weight: normal;
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 0.85rem;
+}
+
+p {
+    margin: 0 0 1.25rem 0;
+    white-space: pre-wrap;
+}
+
+pre {
+    /* background: var(--background); */
+    border: 2px solid var(--secondary);
+    padding: 1rem;
+    font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+/* Inline code */
+code {
+    background: none;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    color: var(--accent);
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    overflow-x: auto;
+    display: block;
+}
+
+th,
+td {
+    border: 2px solid var(--secondary);
+    padding: 0.6rem 1rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Header bg coloring */
+th {
+    background: var(--background);
+    color: var(--tertiary);
+}
+
+/* Images, GIFs, etc */
+/*
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0 1.5rem 0;
+    display: inline-block;
+    border: 2px solid var(--secondary);
+    box-sizing: border-box;
+}
+*/
+
+/* No border sometimes looks better */
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0 1.5rem 0;
+}
+
+/* Larger screens */
+@media (min-width: 540px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+    h2 {
+        font-size: 1.75rem;
+    }
+    h3 {
+        font-size: 1.35rem;
+    }
+    pre {
+        max-width: 680px;
+    }
+    table {
+        max-width: 680px;
+    }
+}
+
+@media (min-width: 860px) {
+    body {
+        max-width: 700px;
+        margin: 3rem auto;
+        padding: 0 2rem 3rem 2rem;
+    }
+}
