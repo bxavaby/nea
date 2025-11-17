@@ -31,23 +31,23 @@
         <link
             rel="icon"
             type="image/png"
-            href="/assets/fi/favicon-96x96.png"
+            href="assets/fi/favicon-96x96.png"
             sizes="96x96"
         />
-        <link rel="icon" type="image/svg+xml" href="/assets/fi/favicon.svg" />
-        <link rel="shortcut icon" href="/assets/fi/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="assets/fi/favicon.svg" />
+        <link rel="shortcut icon" href="assets/fi/favicon.ico" />
         <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/assets/fi/apple-touch-icon.png"
+            href="assets/fi/apple-touch-icon.png"
         />
         <meta name="apple-mobile-web-app-title" content="nea" />
-        <link rel="manifest" href="/assets/fi/site.webmanifest" />
+        <link rel="manifest" href="assets/fi/site.webmanifest" />
 
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/themes.css" />
     </head>
-    <body class="souless">
+    <body class="b34uty-s133p">
         <header>
             <h1>nea, a code archive</h1>
         </header>
@@ -56,7 +56,7 @@
             <section class="entries-stack">
                 <a class="entry-title" href="entries/xxxxxxxx.html">xxxxxxxx</a>
                 <a class="entry-title" href="entries/xxxxxxxx.html">xxxxxxxx</a>
-                <a class="entry-title" href="entries/xxxxxxxx.html">xxxxxxxx</a>
+                <a class="entry-title" href="entries/dotfiles.html">dotfiles</a>
                 <a class="entry-title" href="entries/xxxxxxxx.html">xxxxxxxx</a>
                 <a class="entry-title" href="entries/xxxxxxxx.html">xxxxxxxx</a>
                 <a class="entry-title" href="entries/xxxxxxxx.html">xxxxxxxx</a>
@@ -88,22 +88,26 @@
         </main>
 
         <footer>
-            <div class="footer-links">
-                <a
-                    href="https://github.com/bxavaby/dotfiles"
-                    target="_blank"
-                    class="view-more"
-                    >dotfiles</a
-                >
-                |
-                <a
-                    href="https://matrix.to/#/@kixkux:matrix.org"
-                    target="_blank"
-                    class="view-more"
-                    >matrix</a
-                >
-            </div>
-            <small>nü-entroarch 2025</small>
+            <!-- <span
+                class="footer-link"
+                href="https://matrix.to/#/@kixkux:matrix.org"
+                target="_blank"
+                class="view-more"
+                >{matrix}</span
+            > -->
+            <span class="footer-left">[NÜ MODE]</span>
+            <span class="footer-center" id="entry-count"></span>
+            <span class="footer-right">JAN 2088</span>
         </footer>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const entryCount =
+                    document.querySelectorAll(".entry-title").length;
+                const entryCountEl = document.getElementById("entry-count");
+                if (entryCountEl) {
+                    entryCountEl.textContent = `∑ = ${entryCount}`;
+                }
+            });
+        </script>
     </body>
 </html>

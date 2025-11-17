@@ -1,10 +1,15 @@
 /*
  * NEA -------- +
- * nu entroarch |
+ * nü entroarch |
  * ------------ +
 */
 
 @import url("../fonts/fonts.css");
+
+:root {
+    --header-height: 4.5rem;
+    --footer-height: 2.5rem;
+}
 
 * {
     box-sizing: border-box;
@@ -13,29 +18,36 @@
 }
 
 body {
+    font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
     background: var(--background);
     color: var(--text);
-    font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
-    font-size: 1rem;
     line-height: 1.6;
-    margin: 0;
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: 100vh;
-    position: relative;
+    font-size: 1rem;
+    overflow: hidden;
+    height: 100vh;
 }
 
 main {
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 2rem;
-    margin-top: 4.5rem;
-    margin-bottom: 4.5rem;
+    height: 100vh;
+    padding: 0 1rem;
+    overflow-y: auto;
+    display: grid;
+    place-items: center;
+    scrollbar-gutter: stable;
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        black var(--header-height),
+        black calc(100% - var(--footer-height)),
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        black var(--header-height),
+        black calc(100% - var(--footer-height)),
+        transparent 100%
+    );
 }
 
 header,
@@ -44,52 +56,64 @@ footer {
     left: 0;
     right: 0;
     z-index: 1000;
+    background: var(--background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
 }
 
 header {
+    font-size: 0.8rem;
     top: 0;
-    height: 4.5rem;
-    padding: 0.7rem 2rem;
+    height: var(--header-height);
     border-bottom: 1px solid var(--secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
 header h1 {
     font-family: "DepartureMono", monospace;
-    font-size: 2rem;
-    margin-bottom: 0.15rem;
-    line-height: 1;
+    font-size: 1.5rem;
+    line-height: 1.1;
 }
 
+/*
 header p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     opacity: 0.75;
 }
+*/
 
 /* Footer */
+/*
 footer {
     bottom: 0;
-    height: 4.5rem;
-    padding: 1rem 2rem;
+    height: var(--footer-height);
     border-top: 1px solid var(--secondary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+}
+*/
+
+footer {
+    font-family: "DepartureMono", monospace;
+    font-size: 0.8rem;
+    bottom: 0;
+    height: var(--footer-height);
+    background: var(--text);
+    color: var(--background);
 }
 
+/*
 .footer-links {
     display: flex;
-    gap: 1.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 footer a {
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
     color: var(--text);
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-decoration: none;
     transition: color 0.15s;
 }
@@ -104,16 +128,30 @@ footer small {
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
     color: var(--text);
     font-size: 0.85rem;
-    margin-top: 0.4rem;
+    margin-top: 0.5rem;
+}
+*/
+
+footer a {
+    color: var(--background);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+}
+
+footer a:hover {
+    opacity: 1;
+    text-decoration: underline;
 }
 
 /* Entries */
 .entries-stack {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 280px));
-    gap: 0.8rem 2rem;
-    max-width: 900px;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
     width: 100%;
+    max-width: 400px;
+    padding: var(--header-height) 0 var(--footer-height);
 }
 
 .entry-title {
@@ -124,35 +162,65 @@ footer small {
     text-underline-offset: 0.15em;
     text-decoration-thickness: 1px;
     text-align: center;
-    margin-bottom: 0.2rem;
-    transition: color 0.15s;
+    /* margin-bottom: 0.2rem; */
+    transition:
+        color 0.15s,
+        text-decoration-color 0.15s;
 }
 
 .entry-title:hover,
 .entry-title:focus {
-    color: var(--tertiary);
-    text-decoration-color: var(--tertiary);
+    color: var(--accent);
+    text-decoration-color: var(--accent);
     outline: none;
 }
 
 /* Responsiveness */
-@media (max-width: 860px) {
-    .entries-stack {
-        grid-template-columns: repeat(2, minmax(0, 280px));
-        max-width: 600px;
-    }
-}
-
-@media (max-width: 540px) {
+@media (min-width: 768px) {
     main {
-        padding: 0 1rem;
+        -webkit-mask-image: none;
+        mask-image: none;
     }
+
     .entries-stack {
-        grid-template-columns: 1fr;
-        max-width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 550px;
+        gap: 1.5rem;
+        padding: 2rem 0;
     }
 
     header h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .entries-stack {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 750px;
+    }
+
+    .entry-title {
+        font-size: 1.25rem;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    footer {
+        font-size: 1rem;
     }
 }
