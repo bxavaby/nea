@@ -125,8 +125,8 @@ hr {
     margin: 3rem 0;
 }
 
+/*
 pre {
-    /* background: var(--background); */
     border: 2px solid var(--secondary);
     padding: 1rem;
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
@@ -139,8 +139,10 @@ pre {
     overflow-x: auto;
     box-sizing: border-box;
 }
+*/
 
 /* Inline code */
+/*
 code {
     background: none;
     border-radius: 2px;
@@ -154,6 +156,67 @@ pre > code {
     font-size: inherit;
     color: inherit;
     border-radius: 0;
+}
+*/
+
+pre {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--secondary);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background: none;
+    font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+pre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.88)),
+        url("../assets/lain.gif");
+
+    background-size: cover;
+    background-position: center;
+}
+
+pre > code {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-shadow:
+        /* Inner */
+        0 0 2px #fff,
+        0 0 5px #fff,
+        0 0 8px #fff,
+        /* Outer */ 0 0 12px var(--accent),
+        0 0 20px var(--accent),
+        0 0 25px var(--accent),
+        0 0 35px var(--accent);
+
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    border-radius: 0;
+}
+
+code {
+    background: var(--secondary);
+    border-radius: 3px;
+    padding: 0.1em 0.4em;
+    font-size: 0.9em;
+    color: var(--accent);
 }
 
 /* Tables */
@@ -203,7 +266,32 @@ video {
     border: 1px solid var(--secondary);
 }
 
-/* I want buttons and badges too */
+/* + buttons && badges 2 */
+button {
+    font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
+    border: none;
+    outline: 1px dotted var(--background);
+    outline-offset: -4px;
+    cursor: pointer;
+    background: hsl(0deg 0% 75%);
+    box-shadow:
+        inset -1px -1px #292929,
+        inset 1px 1px #fff,
+        inset -2px -2px rgb(158, 158, 158),
+        inset 2px 2px #ffffff;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 30px;
+}
+
+button:active {
+    box-shadow:
+        inset -1px -1px #fff,
+        inset 1px 1px #292929,
+        inset -2px -2px #ffffff,
+        inset 2px 2px rgb(158, 158, 158);
+}
 
 /* Larger screens */
 @media (min-width: 540px) {
