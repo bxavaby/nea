@@ -269,6 +269,7 @@ video {
 /* + buttons && badges 2 */
 button {
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
+    color: var(--background);
     border: none;
     outline: 1px dotted var(--background);
     outline-offset: -4px;
