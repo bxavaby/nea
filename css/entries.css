@@ -212,10 +212,8 @@ pre > code {
 }
 
 code {
-    background: var(--secondary);
-    border-radius: 3px;
-    padding: 0.1em 0.4em;
-    font-size: 0.9em;
+    background: none;
+    font-size: 0.9rem;
     color: var(--accent);
 }
 
@@ -262,9 +260,27 @@ video {
     max-width: 100%;
     height: auto;
     margin: 1rem 0 1.5rem 0;
-    display: block;
-    border: 1px solid var(--secondary);
+    display: inline-block;
 }
+
+/* Also, adaptive size might come in handy */
+/*
+img,
+video {
+    display: block;
+    width: 80%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    /* Or retro */
+/* aspect-ratio: 4 / 3; */
+/*
+    object-fit: cover;
+    margin: 1.5rem 0;
+    */
+/* border: 1px solid var(--secondary); */
+/*
+}
+*/
 
 /* + buttons && badges 2 */
 button {
