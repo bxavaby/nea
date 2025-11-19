@@ -3,8 +3,8 @@
 ![gif](assets/haha.gif)
 
 ~~xxxxxxxx xxxxxxxx xxxxxxxxxxxxxxxx~~ <br>
-~~xx xxxxx~~ ***nü-entroarch*** ~~xxxxxxxx xxx~~ <br>
-~~xxx xx xxxxxxxxxxxxxxxxxx xx xxxxx~~
+~~xx xxxxxx~~ ***nü-entroarch*** ~~xxxxxxxx xxx~~ <br>
+~~xxxx xx xxxxxxxxxxxxxxxxxx xx xxxxx~~
 
 <br><br><br>
 
