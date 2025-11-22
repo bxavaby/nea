@@ -306,6 +306,16 @@ button:active {
         inset 2px 2px rgb(158, 158, 158);
 }
 
+.view-more {
+    color: var(--sec);
+}
+
+.view-more:hover,
+.view-more:focus-visible {
+    background-color: var(--acc);
+    color: var(--bg);
+}
+
 /* Larger screens */
 @media (min-width: 540px) {
     h1 {

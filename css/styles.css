@@ -37,16 +37,16 @@ main {
     -webkit-mask-image: linear-gradient(
         to bottom,
         transparent 0,
-        black var(--header-height),
-        black calc(100% - var(--footer-height)),
-        transparent 100%
+        black calc(var(--header-height) + 2rem),
+        black calc(100% - var(--footer-height) - 2rem),
+        transparent calc(100% - var(--footer-height))
     );
     mask-image: linear-gradient(
         to bottom,
         transparent 0,
-        black var(--header-height),
-        black calc(100% - var(--footer-height)),
-        transparent 100%
+        black calc(var(--header-height) + 2rem),
+        black calc(100% - var(--footer-height) - 2rem),
+        transparent calc(100% - var(--footer-height))
     );
 }
 
@@ -125,6 +125,11 @@ footer {
     height: var(--footer-height);
     background: var(--txt);
     color: var(--bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    padding-bottom: 0.8rem;
 }
 
 /*
@@ -184,7 +189,20 @@ footer a:hover {
     gap: 1.5rem;
     width: 100%;
     max-width: 400px;
-    padding: var(--header-height) 0 var(--footer-height);
+}
+
+.entries-stack::before,
+.entries-stack::after {
+    content: "";
+    display: block;
+}
+
+.entries-stack::before {
+    height: var(--header-height);
+}
+
+.entries-stack::after {
+    height: var(--footer-height);
 }
 
 .entry-title {
@@ -222,6 +240,11 @@ footer a:hover {
         padding: 2rem 0;
     }
 
+    .entries-stack::before,
+    .entries-stack::after {
+        display: none;
+    }
+
     header h1 {
         font-size: 2rem;
     }
@@ -236,9 +259,20 @@ footer a:hover {
 }
 
 @media (min-width: 1024px) {
+    main {
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
     .entries-stack {
         grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
         max-width: 750px;
+    }
+
+    .entries-stack::before,
+    .entries-stack::after {
+        display: none;
     }
 
     .entry-title {
@@ -255,5 +289,10 @@ footer a:hover {
 
     footer {
         font-size: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        padding-bottom: 0;
     }
 }
