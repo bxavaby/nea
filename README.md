@@ -1,6 +1,6 @@
 <div align=center>
 
-![gif](assets/haha.gif)
+![gif](assets/gifs/haha.gif)
 
 ~~xxxxxxxx xxxxxxxx xxxxxxxxxxxxxxxx~~ <br>
 ~~xx xxxxxx~~ ***nü-entroarch*** ~~xxxxxxxx xxx~~ <br>
