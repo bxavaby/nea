@@ -71,7 +71,7 @@ h6 {
 h2::before,
 h3::before,
 h4::before {
-    content: "$";
+    content: "#";
     color: var(--acc);
     opacity: 0.5;
     margin-right: 0.5ch;
@@ -206,10 +206,11 @@ pre > code {
 }
 
 code {
-    background: none;
-    font-size: 0.9rem;
+    background-color: var(--ter);
     color: var(--sec);
-    font-style: none;
+    padding: 0.2em 0.4em;
+    border-radius: 2px;
+    font-size: 0.9rem;
 }
 
 /* Tables */

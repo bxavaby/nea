@@ -26,9 +26,9 @@
 .sadakiyo5 {
     --bg: oklch(0.457 0.031 285.1);
     --txt: oklch(0.837 0.064 1);
-    --acc: oklch(0.654 0.004 197.1);
+    --acc: oklch(0.951 0.006 17.3);
     --sec: oklch(0.908 0.06 172.1);
-    --ter: oklch(0.951 0.006 17.3);
+    --ter: oklch(0.654 0.004 197.1);
 }
 
 /* Palette::alternative2::digital-paper */
