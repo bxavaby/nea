@@ -8,8 +8,8 @@
 
 :root {
     --header-height: 4.5rem;
-    /* --footer-height: 2.5rem; */
-    --footer-height: 3rem;
+    --footer-height: 2.5rem;
+    /* --footer-height: 3rem; */
 }
 
 * {
