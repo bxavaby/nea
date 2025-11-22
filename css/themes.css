@@ -1,44 +1,110 @@
-/* Palette::main::B34UTY-S133P */
+/*
+ * These palettes from
+ * lospec.com are pretty
+ * cool, but...
+*/
+
+/* Palette::old-main::B34UTY-S133P */
 .b34uty-s133p {
-    --background: oklch(0 0 0);
-    --text: oklch(0.625 0.217 352.4);
-    --accent: oklch(0.367 0.057 261.3);
-    --secondary: oklch(0.489 0.041 187);
-    --tertiary: oklch(0.305 0.089 270.8);
+    --bg: oklch(0 0 0);
+    --txt: oklch(0.625 0.217 352.4);
+    --acc: oklch(0.367 0.057 261.3);
+    --sec: oklch(0.489 0.041 187);
+    --ter: oklch(0.305 0.089 270.8);
 }
 
-/* Palette::alternative::trash-panda */
+/* Palette::new-main::trash-panda */
 .trash-panda {
-    --background: oklch(0.171 0.008 297);
-    --text: oklch(0.861 0.068 53.6);
-    --accent: oklch(0.359 0.017 322);
-    --secondary: oklch(0.678 0.106 20.2);
-    --tertiary: oklch(0.244 0.019 284.9);
+    --bg: oklch(0.171 0.008 297);
+    --txt: oklch(0.861 0.068 53.6);
+    --acc: oklch(0.359 0.017 322);
+    --sec: oklch(0.678 0.106 20.2);
+    --ter: oklch(0.244 0.019 284.9);
+}
+
+/* Palette::alternative::sadakiyo5 */
+.sadakiyo5 {
+    --bg: oklch(0.457 0.031 285.1);
+    --txt: oklch(0.837 0.064 1);
+    --acc: oklch(0.654 0.004 197.1);
+    --sec: oklch(0.908 0.06 172.1);
+    --ter: oklch(0.951 0.006 17.3);
 }
 
 /* Palette::alternative2::digital-paper */
 .digital-paper {
-    --background: oklch(0.115 0 0);
-    --text: oklch(0.97 0 0);
-    --accent: oklch(0.704 0.023 223.1);
-    --secondary: oklch(0.455 0.046 268.8);
-    --tertiary: oklch(0.931 0.153 134.9);
+    --bg: oklch(0.97 0 0);
+    --txt: oklch(0.115 0 0);
+    --acc: oklch(0.704 0.023 223.1);
+    --sec: oklch(0.455 0.046 268.8);
+    --ter: oklch(0.931 0.153 134.9);
 }
 
-/* Palette::alternative3::sadakiyo5 */
-.sadakiyo5 {
-    --background: oklch(0.457 0.031 285.1);
-    --text: oklch(0.837 0.064 1);
-    --accent: oklch(0.654 0.004 197.1);
-    --secondary: oklch(0.908 0.06 172.1);
-    --tertiary: oklch(0.951 0.006 17.3);
-}
-
-/* Palette::alternative4::Hammer-&-Sickle-5 */
+/* Palette::alternative3::Hammer-&-Sickle-5 */
 .hammer-sickle-5 {
-    --background: oklch(0.145 0 0);
-    --text: oklch(0.962 0.041 85.3);
-    --accent: oklch(0.547 0.189 32.2);
-    --secondary: oklch(0.65 0.14 64.2);
-    --tertiary: oklch(0.518 0.039 84.4);
+    --bg: oklch(0.145 0 0);
+    --txt: oklch(0.962 0.041 85.3);
+    --acc: oklch(0.547 0.189 32.2);
+    --sec: oklch(0.65 0.14 64.2);
+    --ter: oklch(0.518 0.039 84.4);
 }
+
+/*
+ * Should I go with two
+ * variations of the same
+ * custom palette?
+ *
+ * The values:
+ *
+ * #f5f5f5 <--> whitesmoke <--> oklch(0.970 0.000 0.0)
+ * #080b12 <--> midnightberry <--> oklch(0.150 0.016 265.8)
+ * #da70d6 <--> orchid <--> oklch(0.702 0.181 328.7)
+ * #004c3d <--> mongreen <--> oklch(0.372 0.071 173.7)
+ *
+ * #ff6347 <--> tomato <--> oklch(0.696 0.196 32.3)
+ * #ee964b <--> plumishazard <--> oklch(0.750 0.139 58.6)
+ * #483d8b <--> darkslateblue <--> oklch(0.414 0.125 286.0)
+ *
+ * --sec: darkslateblue
+ * --ter: plumishazard
+ * --tmt: tomato
+ *
+ * And the following values
+ * define the mode diffs:
+ *
+ * [dark-mode]
+ * --bg: midnightberry
+ * --txt: whitesmoke
+ * --acc: orchid
+ *
+ * [light-mode]
+ * --bg: whitesmoke
+ * --txt: midnightberry
+ * --acc: mongreen
+*/
+
+/* Palette::main?::dark-mode */
+.dark-mode {
+    --bg: oklch(0.15 0.016 265.8);
+    --txt: oklch(0.97 0 0);
+    --acc: oklch(0.702 0.181 328.7);
+
+    --sec: oklch(0.414 0.125 286);
+    --ter: oklch(0.75 0.139 58.6);
+    --tmt: oklch(0.696 0.196 32.3);
+}
+
+/* Palette::main?::light-mode */
+.light-mode {
+    --bg: oklch(0.97 0 0);
+    --txt: oklch(0.15 0.016 265.8);
+    --acc: oklch(0.372 0.071 173.7);
+    --sec: oklch(0.414 0.125 286);
+    --ter: oklch(0.75 0.139 58.6);
+    --tmt: oklch(0.696 0.196 32.3);
+}
+
+/*
+    * For now, trash-panda is
+    * an amazing choice:)
+*/

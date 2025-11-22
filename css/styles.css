@@ -19,8 +19,8 @@
 
 body {
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
-    background: var(--background);
-    color: var(--text);
+    background: var(--bg);
+    color: var(--txt);
     line-height: 1.6;
     font-size: 1rem;
     overflow: hidden;
@@ -56,7 +56,7 @@ footer {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: var(--background);
+    background: var(--bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,7 +67,7 @@ header {
     font-size: 0.8rem;
     top: 0;
     height: var(--header-height);
-    border-bottom: 1px solid var(--secondary);
+    border-bottom: 1px solid var(--acc);
 }
 
 header h1 {
@@ -83,12 +83,38 @@ header p {
 }
 */
 
+/*
+button,
+input[type="submit"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--bg);
+    color: var(--txt);
+    border: 2px solid var(--txt);
+    padding: 0.1em 0.4em;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease-out,
+        color 0.2s ease-out;
+}
+
+button:hover,
+button:focus-visible,
+input[type="submit"]:hover,
+input[type="submit"]:focus-visible {
+    background-color: var(--txt);
+    color: var(--bg);
+}
+*/
+
 /* Footer */
 /*
 footer {
     bottom: 0;
     height: var(--footer-height);
-    border-top: 1px solid var(--secondary);
+    border-top: 1px solid var(--acc);
 }
 */
 
@@ -97,8 +123,8 @@ footer {
     font-size: 0.8rem;
     bottom: 0;
     height: var(--footer-height);
-    background: var(--text);
-    color: var(--background);
+    background: var(--txt);
+    color: var(--bg);
 }
 
 /*
@@ -112,7 +138,7 @@ footer {
 
 footer a {
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
-    color: var(--text);
+    color: var(--txt);
     font-size: 0.8rem;
     text-decoration: none;
     transition: color 0.15s;
@@ -120,20 +146,20 @@ footer a {
 
 footer a:hover,
 footer a:focus {
-    color: var(--accent);
+    color: var(--acc);
     outline: none;
 }
 
 footer small {
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
-    color: var(--text);
+    color: var(--txt);
     font-size: 0.85rem;
     margin-top: 0.5rem;
 }
 */
 
 footer a {
-    color: var(--background);
+    color: var(--bg);
     text-decoration: none;
     opacity: 0.7;
     transition: opacity 0.15s;
@@ -142,6 +168,13 @@ footer a {
 footer a:hover {
     opacity: 1;
     text-decoration: underline;
+}
+
+.footer-left {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Entries */
@@ -156,7 +189,7 @@ footer a:hover {
 
 .entry-title {
     font-size: 1.05rem;
-    color: var(--text);
+    color: var(--txt);
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
     text-decoration: underline;
     text-underline-offset: 0.15em;
@@ -170,8 +203,8 @@ footer a:hover {
 
 .entry-title:hover,
 .entry-title:focus {
-    color: var(--accent);
-    text-decoration-color: var(--accent);
+    color: var(--acc);
+    text-decoration-color: var(--acc);
     outline: none;
 }
 

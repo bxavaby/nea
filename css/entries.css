@@ -2,11 +2,11 @@
 
 body {
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
-    background: var(--background);
-    color: var(--text);
+    background: var(--bg);
+    color: var(--txt);
     max-width: 100% !important;
-    margin: 2rem 0;
-    padding: 0 1rem 3rem 1rem;
+    /* margin: 2rem 0; */
+    padding: 1rem 1rem 1rem 1rem;
     line-height: 1.6;
     font-size: 1rem;
     text-align: left;
@@ -15,8 +15,8 @@ body {
 
 .back-link {
     display: inline-block;
-    margin-bottom: 1rem;
-    color: var(--tertiary);
+    margin-bottom: 2rem;
+    color: var(--sec);
     text-decoration: underline;
     font-weight: bold;
     cursor: pointer;
@@ -26,7 +26,7 @@ body {
 
 .back-link:hover,
 .back-link:focus {
-    color: var(--accent);
+    color: var(--acc);
     outline: none;
     background-color: transparent;
 }
@@ -71,8 +71,8 @@ h6 {
 h2::before,
 h3::before,
 h4::before {
-    content: "#";
-    color: var(--accent);
+    content: "$";
+    color: var(--acc);
     opacity: 0.5;
     margin-right: 0.5ch;
 }
@@ -84,26 +84,20 @@ p {
 }
 
 a {
-    color: var(--accent);
+    color: var(--acc);
     text-decoration: underline;
     text-underline-offset: 0.15em;
     transition: color 0.15s;
 }
 
 a:hover {
-    color: var(--text);
-    background-color: var(--accent);
-}
-
-ul,
-ol {
-    margin: 0 0 1.25rem 0;
-    padding-left: 2ch;
+    color: var(--txt);
+    background-color: var(--acc);
 }
 
 ul li::marker {
     content: "+ ";
-    color: var(--accent);
+    color: var(--acc);
 }
 
 blockquote {
@@ -111,8 +105,8 @@ blockquote {
     max-width: 100%;
     margin: 1.5rem 0;
     padding: 1rem 1.5rem;
-    box-shadow: 4px 4px 0px var(--accent);
-    color: var(--secondary);
+    box-shadow: 4px 4px 0px var(--ter);
+    color: var(--txt);
 }
 
 blockquote p {
@@ -121,13 +115,13 @@ blockquote p {
 
 hr {
     border: none;
-    border-top: 1px dashed var(--tertiary);
+    border-top: 1px dashed var(--ter);
     margin: 3rem 0;
 }
 
 /*
 pre {
-    border: 2px solid var(--secondary);
+    border: 2px solid var(--acc);
     padding: 1rem;
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
     font-size: 0.9rem;
@@ -147,7 +141,7 @@ code {
     background: none;
     border-radius: 2px;
     font-size: 0.9rem;
-    color: var(--accent);
+    color: var(--acc);
 }
 
 pre > code {
@@ -162,7 +156,7 @@ pre > code {
 pre {
     position: relative;
     overflow: hidden;
-    border: 1px solid var(--secondary);
+    border: 1px solid var(--sec);
     padding: 1.5rem;
     margin: 1.5rem 0;
     background: none;
@@ -185,7 +179,7 @@ pre::before {
     z-index: 1;
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.88)),
-        url("../assets/lain.gif");
+        url("../assets/imgs/re.png");
 
     background-size: cover;
     background-position: center;
@@ -200,10 +194,10 @@ pre > code {
         0 0 2px #fff,
         0 0 5px #fff,
         0 0 8px #fff,
-        /* Outer */ 0 0 12px var(--accent),
-        0 0 20px var(--accent),
-        0 0 25px var(--accent),
-        0 0 35px var(--accent);
+        /* Outer */ 0 0 12px var(--acc),
+        0 0 20px var(--acc),
+        0 0 25px var(--acc),
+        0 0 35px var(--acc);
 
     background: none;
     padding: 0;
@@ -214,7 +208,8 @@ pre > code {
 code {
     background: none;
     font-size: 0.9rem;
-    color: var(--accent);
+    color: var(--sec);
+    font-style: none;
 }
 
 /* Tables */
@@ -230,31 +225,30 @@ table {
 
 th,
 td {
-    border: 2px solid var(--secondary);
+    border: 2px solid var(--sec);
     padding: 0.6rem 1rem;
     text-align: left;
     white-space: nowrap;
 }
 
 th {
-    background: var(--tertiary);
-    color: var(--text);
+    background: var(--acc);
+    color: var(--txt);
     font-family: "DepartureMono", monospace;
 }
 
 /* Images, GIFs, etc */
-/*
 img {
     max-width: 100%;
     height: auto;
     margin: 1rem 0 1.5rem 0;
     display: inline-block;
-    border: 2px solid var(--secondary);
+    border: 2px solid var(--sec);
     box-sizing: border-box;
 }
-*/
 
 /* No border sometimes looks better */
+/*
 img,
 video {
     max-width: 100%;
@@ -262,6 +256,7 @@ video {
     margin: 1rem 0 1.5rem 0;
     display: inline-block;
 }
+*/
 
 /* Also, adaptive size might come in handy */
 /*
@@ -277,7 +272,7 @@ video {
     object-fit: cover;
     margin: 1.5rem 0;
     */
-/* border: 1px solid var(--secondary); */
+/* border: 1px solid var(--sec); */
 /*
 }
 */
@@ -285,9 +280,9 @@ video {
 /* + buttons && badges 2 */
 button {
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
-    color: var(--background);
+    color: var(--bg);
     border: none;
-    outline: 1px dotted var(--background);
+    outline: 1px dotted var(--bg);
     outline-offset: -4px;
     cursor: pointer;
     background: hsl(0deg 0% 75%);
@@ -331,6 +326,6 @@ button:active {
 
 @media (min-width: 860px) {
     body {
-        padding: 3rem 2rem 4rem 2rem;
+        padding: 2rem 2rem 2rem 2rem;
     }
 }

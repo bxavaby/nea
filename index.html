@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#080b12" />
         <meta property="og:title" content="nü-entroarch" />
         <meta
             property="og:description"
@@ -13,7 +13,7 @@
         <!-- <meta property="og:image:type" content="image/gif" /> -->
         <meta
             property="og:image"
-            content="https://bxavaby.github.io/nea/assets/al.png"
+            content="https://bxavaby.github.io/nea/assets/imgs/al.png"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -29,7 +29,7 @@
         />
         <meta
             name="twitter:image"
-            content="https://bxavaby.github.io/nea/assets/al.png"
+            content="https://bxavaby.github.io/nea/assets/imgs/al.png"
         />
 
         <meta
@@ -60,9 +60,10 @@
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/themes.css" />
     </head>
-    <body class="b34uty-s133p">
+    <body class="trash-panda">
         <header>
             <h1>nea, a code archive</h1>
+            <!-- <button id="theme-toggle">+</button> -->
         </header>
 
         <main>
@@ -108,11 +109,26 @@
                 class="view-more"
                 >{matrix}</span
             > -->
-            <span class="footer-left">[NÜ MODE]</span>
+            <span class="footer-left" id="theme-toggle">[NÜ MODE]</span>
             <span class="footer-center" id="entry-count"></span>
             <span class="footer-right">JAN 2088</span>
         </footer>
+
+        <script src="js/theme.js"></script>
         <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const themeSwitcher = new ThemeSwitcher();
+                themeSwitcher.init();
+
+                const toggleButton = document.getElementById("theme-toggle");
+
+                if (toggleButton) {
+                    toggleButton.addEventListener("click", () => {
+                        themeSwitcher.toggleTheme();
+                    });
+                }
+            });
+
             document.addEventListener("DOMContentLoaded", () => {
                 const entryCount =
                     document.querySelectorAll(".entry-title").length;
