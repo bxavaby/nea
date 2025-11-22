@@ -75,6 +75,15 @@ header h1 {
     font-family: "DepartureMono", monospace;
     font-size: 1.5rem;
     line-height: 1.1;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+header h1 a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /*
