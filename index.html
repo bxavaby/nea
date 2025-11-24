@@ -134,8 +134,28 @@
                 const entryCount =
                     document.querySelectorAll(".entry-title").length;
                 const entryCountEl = document.getElementById("entry-count");
+
+                /*
+                const animateCount = (element, finalCount) => {
+                    let currentCount = 0;
+                    const duration = 1000;
+                    const stepTime = Math.abs(
+                        Math.floor(duration / finalCount),
+                    );
+
+                    const timer = setInterval(() => {
+                        currentCount += 1;
+                        element.textContent = `n = ${currentCount}`;
+                        if (currentCount === finalCount) {
+                            clearInterval(timer);
+                        }
+                    }, stepTime);
+                };
+                */
+
                 if (entryCountEl) {
-                    entryCountEl.textContent = `∑ = ${entryCount}`;
+                    entryCountEl.textContent = `n = ${entryCount}`;
+                    // animateCount(entryCountEl, entryCount);
                 }
 
                 // Last commit date
@@ -161,7 +181,7 @@
 
                             // Format: MMM YYYY
                             const formattedDate = lastCommitDate
-                                .toLocaleDateString("en-US", {
+                                .toLocaleDateString("de-DE", {
                                     month: "short",
                                     year: "numeric",
                                 })
