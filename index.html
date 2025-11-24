@@ -117,8 +117,8 @@
 
         <script src="js/theme.js"></script>
         <script>
-            // Theme switcher
             document.addEventListener("DOMContentLoaded", () => {
+                // Theme switcher
                 const themeSwitcher = new ThemeSwitcher();
                 themeSwitcher.init();
 
@@ -129,24 +129,20 @@
                         themeSwitcher.toggleTheme();
                     });
                 }
-            });
 
-            // Entry counter
-            document.addEventListener("DOMContentLoaded", () => {
+                // Entry counter
                 const entryCount =
                     document.querySelectorAll(".entry-title").length;
                 const entryCountEl = document.getElementById("entry-count");
                 if (entryCountEl) {
                     entryCountEl.textContent = `∑ = ${entryCount}`;
                 }
-            });
 
-            // Last commit date
-            document.addEventListener("DOMContentLoaded", () => {
+                // Last commit date
                 const owner = "bxavaby";
                 const repo = "nea";
                 const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits`;
-                const updateElement = document.getElementById("last-updated");
+                const updateElement = document.getElementById("last-commit");
 
                 fetch(apiUrl)
                     .then((response) => {
@@ -165,7 +161,7 @@
 
                             // Format: MMM YYYY
                             const formattedDate = lastCommitDate
-                                .toLocaleDateString("en-UK", {
+                                .toLocaleDateString("en-US", {
                                     month: "short",
                                     year: "numeric",
                                 })
