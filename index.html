@@ -113,12 +113,13 @@
             > -->
             <span class="footer-left" id="theme-toggle">[NÜ MODE]</span>
             <span class="footer-center" id="entry-count"></span>
-            <span class="footer-right">JAN 2088</span>
+            <span class="footer-right" id="last-commit">JAN 2088</span>
             <!-- <span class="footer-center-below">chronicling the computable</span> -->
         </footer>
 
         <script src="js/theme.js"></script>
         <script>
+            // Theme switcher
             document.addEventListener("DOMContentLoaded", () => {
                 const themeSwitcher = new ThemeSwitcher();
                 themeSwitcher.init();
@@ -132,6 +133,7 @@
                 }
             });
 
+            // Entry counter
             document.addEventListener("DOMContentLoaded", () => {
                 const entryCount =
                     document.querySelectorAll(".entry-title").length;
@@ -139,6 +141,50 @@
                 if (entryCountEl) {
                     entryCountEl.textContent = `∑ = ${entryCount}`;
                 }
+            });
+
+            // Last commit date
+            document.addEventListener("DOMContentLoaded", () => {
+                const owner = "bxavaby";
+                const repo = "nea";
+                const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits`;
+                const updateElement = document.getElementById("last-updated");
+
+                fetch(apiUrl)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(
+                                `GitHub API request failed: ${response.status}`,
+                            );
+                        }
+                        return response.json();
+                    })
+                    .then((commits) => {
+                        if (commits && commits.length > 0) {
+                            const lastCommitDate = new Date(
+                                commits[0].commit.author.date,
+                            );
+
+                            // Format: MMM YYYY
+                            const formattedDate = lastCommitDate
+                                .toLocaleDateString("en-UK", {
+                                    month: "short",
+                                    year: "numeric",
+                                })
+                                .toUpperCase();
+
+                            if (updateElement) {
+                                updateElement.textContent = formattedDate;
+                            }
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(
+                            "Could not fetch last commit date:",
+                            error,
+                        );
+                        // Fallback to "JAN 2088"
+                    });
             });
         </script>
     </body>
