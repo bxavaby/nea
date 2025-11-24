@@ -2,6 +2,7 @@
 
 class ThemeSwitcher {
   constructor() {
+    this.themeColorMeta = document.getElementById("theme-color-meta");
     this.body = document.body;
     this.storageKey = "theme-preference";
     this.themes = {
@@ -10,18 +11,29 @@ class ThemeSwitcher {
     };
   }
 
+  updateThemeColor() {
+    if (!this.themeColorMeta) return;
+
+    const backgroundColor = getComputedStyle(this.body)
+      .getPropertyValue("--bg-meta")
+      .trim();
+
+    this.themeColorMeta.setAttribute("content", backgroundColor);
+  }
+
   init() {
     const savedTheme = localStorage.getItem(this.storageKey);
 
     if (savedTheme && Object.values(this.themes).includes(savedTheme)) {
       this.setTheme(savedTheme);
     } else {
-      // See system preference
       const prefersDark = window.matchMedia(
         "(prefers-color-scheme: dark)",
       ).matches;
       this.setTheme(prefersDark ? this.themes.DARK : this.themes.LIGHT);
     }
+
+    this.updateThemeColor();
   }
 
   toggleTheme() {
@@ -29,6 +41,8 @@ class ThemeSwitcher {
     const newTheme =
       currentTheme === this.themes.DARK ? this.themes.LIGHT : this.themes.DARK;
     this.setTheme(newTheme);
+
+    setTimeout(() => this.updateThemeColor(), 0);
   }
 
   /**

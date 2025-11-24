@@ -16,6 +16,7 @@
 /* Palette::new-main::trash-panda */
 .trash-panda {
     --bg: oklch(0.171 0.008 297);
+    --bg-meta: #100f13;
     --txt: oklch(0.861 0.068 53.6);
     --acc: oklch(0.359 0.017 322);
     --sec: oklch(0.678 0.106 20.2);
@@ -25,6 +26,7 @@
 /* Palette::alternative::sadakiyo5 */
 .sadakiyo5 {
     --bg: oklch(0.457 0.031 285.1);
+    --bg-meta: #555568;
     --txt: oklch(0.837 0.064 1);
     --acc: oklch(0.951 0.006 17.3);
     --sec: oklch(0.908 0.06 172.1);
