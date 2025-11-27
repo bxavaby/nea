@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="theme-color" content="#100f13" id="theme-color-meta" />
+        <title>nü-entroarch | nautical-polar-night</title>
+        <link
+            rel="icon"
+            type="image/png"
+            href="../assets/fi/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="../assets/fi/favicon.svg" />
+        <link rel="shortcut icon" href="../assets/fi/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../assets/fi/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="nea" />
+        <link rel="manifest" href="../assets/fi/site.webmanifest" />
+        <link rel="stylesheet" href="../css/entries.css" />
+        <link rel="stylesheet" href="../css/themes.css" />
+    </head>
+    <body class="trash-panda">
+        <a href="../" class="back-link" aria-label="Back to main page">back</a>
+
+        <h1>Nautical Polar Night (<em>naponi</em>)</h1>
+
+        <br />
+
+        <article>
+            <p>
+                [WIP] <em>naponi</em> is an enjoyable palette that honors a
+                restricted version of the
+                <a
+                    href="https://en.wikipedia.org/wiki/Polar_night"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >polar night</a
+                >
+                phenomenon. <br />
+                Such phenomenon occurs at latitudes between (approximately) 72°
+                34' and 78° 34' N/S.
+            </p>
+
+            <hr />
+
+            <h3>The Palette</h3>
+            <ul class="palette-list">
+                <li style="--color: #0c3c52"><code>#0c3c52</code></li>
+                <li style="--color: #d8bfd8"><code>#d8bfd8</code></li>
+                <li style="--color: #fb9c9c"><code>#fb9c9c</code></li>
+                <li style="--color: #8accd3"><code>#8accd3</code></li>
+                <li style="--color: #434c5e"><code>#434c5e</code></li>
+            </ul>
+
+            <br />
+
+            <p>
+                As aforementioned, this isn't a finished product. <br />
+                I plan to scale it up to 8 colors soon and develop a
+                comprehensive (16-color) version later.
+            </p>
+
+            <hr />
+
+            <h3>In action</h3>
+            <button id="naponi-theme">naponi</button>
+            <button id="reset-theme" style="display: none">reset</button>
+        </article>
+
+        <script src="../js/theme.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const themeSwitcher = new ThemeSwitcher();
+                themeSwitcher.init();
+
+                const naponiButton = document.getElementById("naponi-theme");
+                const resetButton = document.getElementById("reset-theme");
+
+                naponiButton.addEventListener("click", () => {
+                    themeSwitcher.setTheme("naponi");
+                    setTimeout(() => themeSwitcher.updateThemeColor(), 0);
+                    naponiButton.style.display = "none";
+                    resetButton.style.display = "inline-block";
+                });
+
+                resetButton.addEventListener("click", () => {
+                    location.reload();
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -110,3 +110,13 @@
     * For now, trash-panda is
     * an amazing choice:)
 */
+
+/* naponi */
+.naponi {
+    --bg: #0c3c52;
+    --txt: #d8bfd8;
+    --acc: #fb9c9c;
+
+    --sec: #8accd3;
+    --ter: #434c5e;
+}
