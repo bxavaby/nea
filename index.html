@@ -141,7 +141,6 @@
                     document.querySelectorAll(".entry-title").length;
                 const entryCountEl = document.getElementById("entry-count");
 
-                /*
                 const animateCount = (element, finalCount) => {
                     let currentCount = 0;
                     const duration = 1000;
@@ -157,11 +156,10 @@
                         }
                     }, stepTime);
                 };
-                */
 
                 if (entryCountEl) {
-                    entryCountEl.textContent = `n = ${entryCount}`;
-                    // animateCount(entryCountEl, entryCount);
+                    // entryCountEl.textContent = `n = ${entryCount}`;
+                    animateCount(entryCountEl, entryCount);
                 }
 
                 // Last commit date
