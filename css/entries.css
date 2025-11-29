@@ -245,13 +245,19 @@ table {
     font-size: 0.95rem;
     overflow-x: auto;
     display: block;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+table::-webkit-scrollbar {
+    display: none;
 }
 
 th,
 td {
     border: 2px solid var(--sec);
     padding: 0.6rem 1rem;
-    text-align: left;
+    text-align: center;
     white-space: nowrap;
 }
 
@@ -354,12 +360,16 @@ button:active {
         max-width: 680px;
     }
     table {
-        max-width: 680px;
+        max-width: 469px;
+        display: table;
     }
 }
 
 @media (min-width: 860px) {
     body {
         padding: 2rem 2rem 2rem 2rem;
+    }
+    table {
+        display: table;
     }
 }

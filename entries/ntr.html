@@ -71,18 +71,26 @@
                 <!-- <li>Intro</li> -->
                 <!-- <li>LoC (oh.. hey, recursion)</li> -->
                 <li>
-                    <a href="#hardware" class="view-more">Hardware</a> {<a
-                        href="#specs"
-                        class="view-more"
-                        >Specs</a
-                    >, <a href="#setup" class="view-more">Setup</a>,
+                    Hardware {<a href="#specs" class="view-more">Specs</a>,
+                    <a href="#setup" class="view-more">Setup</a>,
                     <a href="#core-packages" class="view-more">Core Packages</a
                     >}
                 </li>
                 <li>
                     <a href="#software" class="view-more">Software</a>
                 </li>
-                <li>Configs {niri, waybar, foot, etc.}</li>
+                <li>
+                    Configs {<a href="#niri" class="view-more">niri</a>,
+                    <a href="#waybar" class="view-more">waybar</a>,
+                    <a href="#tofi" class="view-more">tofi</a>,
+                    <a href="#foot" class="view-more">foot</a>,
+                    <a href="#ghostty" class="view-more">ghostty</a>,
+                    <a href="#zsh" class="view-more">zsh</a>,
+                    <a href="#qutebrowser" class="view-more">qutebrowser</a>,
+                    <a href="#micro" class="view-more">micro</a>,
+                    <a href="#helix" class="view-more">helix</a>,
+                    <a href="#limine" class="view-more">limine</a>}
+                </li>
                 <li><a href="#scripts" class="view-more">Scripts</a></li>
                 <li>
                     <a href="#screensaver" class="view-more">Screensaver</a>
@@ -113,7 +121,7 @@
             <pre><code># Enable graphics for X220 iGPU
 xbps-install -S linux-firmware-intel xf86-video-intel mesa-dri
 
-# Specific kernel params (limine.cfg later)
+# Specific kernel params (limine.conf later)
 echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
 </code></pre>
 
@@ -128,7 +136,7 @@ echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
             <h3 id="software">Software</h3>
             <ul>
                 <li>
-                    Compositor/wm:
+                    Compositor/WM:
                     <a
                         href="https://yalter.github.io/niri/"
                         target="_blank"
@@ -138,7 +146,7 @@ echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
                     >
                 </li>
                 <li>
-                    Bar:
+                    Status Bar:
                     <a
                         href="https://waybar.org/"
                         target="_blank"
@@ -168,23 +176,23 @@ echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
                     >
                 </li>
                 <li>
-                    Wallpaper setter:
+                    Wallpaper Setter:
                     <a
-                        href=""
+                        href="https://feh.finalrewind.org/"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="view-more"
-                        >xxxx</a
+                        >feh</a
                     >
                 </li>
                 <li>
-                    Screensaver/lock:
+                    Screensaver/Lock:
                     <a
                         href=""
                         target="_blank"
                         rel="noopener noreferrer"
                         class="view-more"
-                        >xxxx</a
+                        >x</a
                     >
                 </li>
 
@@ -201,7 +209,7 @@ echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
                     >
                 </li>
                 <li>
-                    Terminal alt.:
+                    Terminal Alt.:
                     <a
                         href="https://ghostty.org/"
                         target="_blank"
@@ -247,7 +255,7 @@ echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
                     >
                 </li>
                 <li>
-                    Browser alt.:
+                    Browser Alt.:
                     <a
                         href="https://librewolf.net/"
                         target="_blank"
@@ -277,6 +285,29 @@ echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
                         rel="noopener noreferrer"
                         class="view-more"
                         >helix</a
+                    >
+                </li>
+
+                <br />
+
+                <li>
+                    Document Viewer:
+                    <a
+                        href="https://pwmt.org/projects/zathura/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >zathura</a
+                    >
+                </li>
+                <li>
+                    Image Viewer:
+                    <a
+                        href="https://feh.finalrewind.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >feh</a
                     >
                 </li>
 
@@ -333,6 +364,103 @@ echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
 
             <hr />
 
+            <h3 id="configs">Configs</h3>
+            <p>
+                Only the main, <em>most vital</em> configs are shown here. Oh,
+                and not the whole file, of course. See them all at
+                <a
+                    href=""
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >my dotfiles repo</a
+                >.
+            </p>
+
+            <h4 id="niri">~/.config/niri/config.kdl</h4>
+            <pre><code>
+
+</code></pre>
+
+            <br />
+
+            <h4 id="waybar">~/.config/waybar/style.css</h4>
+            <pre><code>
+
+</code></pre>
+            <h4>~/.config/waybar/config</h4>
+            <pre><code>
+
+</code></pre>
+
+            <br />
+
+            <h4 id="tofi">~/.config/tofi/config</h4>
+            <pre><code>
+
+</code></pre>
+
+            <br />
+
+            <h4 id="foot">~/.config/foot/foot.ini</h4>
+            <pre><code>
+
+</code></pre>
+
+            <br />
+
+            <h4 id="ghostty">~/.config/ghostty/config</h4>
+            <pre><code>
+
+</code></pre>
+
+            <br />
+
+            <h4 id="zsh">~/.zshrc</h4>
+            <pre><code>
+
+</code></pre>
+
+            <br />
+
+            <h4 id="qutebrowser">~/.config/qutebrowser/config.py</h4>
+            <pre><code>
+
+</code></pre>
+
+            <br />
+
+            <h4 id="micro">~/.config/micro/settings.json</h4>
+            <pre><code>
+
+</code></pre>
+
+            <h4>~/.config/micro/bindings.json</h4>
+            <pre><code>
+
+</code></pre>
+
+            <h4>~/.config/micro/colors.conf</h4>
+            <pre><code>
+
+</code></pre>
+
+            <br />
+
+            <h4 id="helix">~/.config/helix/config.toml</h4>
+            <pre><code>
+
+</code></pre>
+
+            <br />
+
+            <h4 id="limine">/boot/limine/limine.conf</h4>
+            <pre><code>
+
+</code></pre>
+
+            <hr />
+
             <h3 id="scripts">Scripts</h3>
             <p>Small collection of shell scripts.</p>
             <ul>
@@ -380,7 +508,7 @@ echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
                     rel="noopener noreferrer"
                     class="view-more"
                     >GitHub</a
-                >. <br /><br />
+                >. <br />
                 The following list contains every font in its regular style:
             </p>
             <ul class="font-list">
