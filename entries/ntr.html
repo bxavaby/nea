@@ -486,8 +486,8 @@ echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
                 The chosen 13 (actually 17) fonts and 51 wallpapers (zipped) can
                 be independently downloaded by clicking the buttons below.
             </p>
-            <button id="download-fonts">Fonts</button>
-            <button id="download-wallpapers">Wallpapers</button>
+            <button id="download-fonts">Fonts (810MB)</button>
+            <button id="download-wallpapers">Wallpapers (28MB</button>
 
             <br /><br />
         </article>
@@ -503,7 +503,8 @@ echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
             document
                 .getElementById("download-fonts")
                 .addEventListener("click", () => {
-                    window.location.href = "../assets/ntr/fonts.zip";
+                    window.location.href =
+                        "https://github.com/bxavaby/nea/releases/download/v0.1.0/fonts.zip";
                 });
 
             document
