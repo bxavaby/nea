@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="theme-color" content="#100f13" id="theme-color-meta" />
+        <title>nü-entroarch | ntr</title>
+        <link
+            rel="icon"
+            type="image/png"
+            href="../assets/fi/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="../assets/fi/favicon.svg" />
+        <link rel="shortcut icon" href="../assets/fi/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../assets/fi/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="nea" />
+        <link rel="manifest" href="../assets/fi/site.webmanifest" />
+        <link rel="stylesheet" href="../css/entries.css" />
+        <link rel="stylesheet" href="../css/ntr-fonts.css" />
+        <link rel="stylesheet" href="../css/themes.css" />
+    </head>
+    <body class="trash-panda">
+        <a href="../" class="back-link" aria-label="Back to main page">back</a>
+
+        <h1>ntr (read <em>enter</em>)</h1>
+
+        <br />
+
+        <article>
+            <p>
+                [WIP] ntr is what I call my current
+                <a
+                    href="https://voidlinux.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >Void Linux</a
+                >
+                setup on my ThinkPad X220. It aims to be very minimalistic and
+                efficient. <br />
+                If you think I can improve it, or simply want to suggest
+                something cool, please do so via
+
+                <a
+                    href="https://matrix.to/#/@kixkux:matrix.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >matrix</a
+                >
+                or
+                <a
+                    href="mailto:kixkux@pm.me"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >email</a
+                >.
+            </p>
+
+            <hr />
+
+            <h3>LoC</h3>
+            <ol>
+                <!-- <li>Intro</li> -->
+                <!-- <li>LoC (oh.. hey, recursion)</li> -->
+                <li>
+                    <a href="#hardware" class="view-more">Hardware</a> {<a
+                        href="#specs"
+                        class="view-more"
+                        >Specs</a
+                    >, <a href="#setup" class="view-more">Setup</a>,
+                    <a href="#core-packages" class="view-more">Core Packages</a
+                    >}
+                </li>
+                <li>
+                    <a href="#software" class="view-more">Software</a>
+                </li>
+                <li>Configs {niri, waybar, foot, etc.}</li>
+                <li><a href="#scripts" class="view-more">Scripts</a></li>
+                <li>
+                    <a href="#screensaver" class="view-more">Screensaver</a>
+                </li>
+                <li>
+                    <a href="#wallpapers-fonts" class="view-more"
+                        >Wallpapers & Fonts</a
+                    >
+                </li>
+            </ol>
+
+            <hr />
+
+            <h3 id="hardware">Hardware</h3>
+
+            <h4 id="specs">Specs, CUZ IT TRENDY</h4>
+            <ul>
+                <li>CPU:</li>
+                <li>GPU:</li>
+                <li>Disk:</li>
+                <li>Memory:</li>
+                <li>Display: 1366x768</li>
+            </ul>
+
+            <br />
+
+            <h4 id="setup">Setup, CUZ IT VITAL</h4>
+            <pre><code># Enable graphics for X220 iGPU
+xbps-install -S linux-firmware-intel xf86-video-intel mesa-dri
+
+# Specific kernel params (limine.cfg later)
+echo 'i915.enable_psr=0 i915.fastboot=1' >> /etc/modprobe.d/i915.conf
+</code></pre>
+
+            <br />
+
+            <h4 id="core-packages">Core Packages</h4>
+            <pre><code>xbps-install -S niri waybar foot foot-terminfo ghostty mako tofi grim slurp wl-clipboard swaybg swayidle qutebrowser librewolf micro helix limine linux-firmware-intel mesa-dri xdg-desktop-portal-wlr xdg-desktop-portal-gtk git gcc make python3 python3-pip zsh
+</code></pre>
+
+            <hr />
+
+            <h3 id="software">Software</h3>
+            <ul>
+                <li>
+                    Compositor/wm:
+                    <a
+                        href="https://yalter.github.io/niri/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >niri</a
+                    >
+                </li>
+                <li>
+                    Bar:
+                    <a
+                        href="https://waybar.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >waybar</a
+                    >
+                </li>
+                <li>
+                    Launcher:
+                    <a
+                        href="https://github.com/philj56/tofi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >tofi</a
+                    >
+                </li>
+                <li>
+                    Notification Daemon:
+                    <a
+                        href="https://github.com/emersion/mako"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >mako</a
+                    >
+                </li>
+                <li>
+                    Wallpaper setter:
+                    <a
+                        href=""
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >xxxx</a
+                    >
+                </li>
+                <li>
+                    Screensaver/lock:
+                    <a
+                        href=""
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >xxxx</a
+                    >
+                </li>
+
+                <br />
+
+                <li>
+                    Terminal:
+                    <a
+                        href="https://codeberg.org/dnkl/foot"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >foot</a
+                    >
+                </li>
+                <li>
+                    Terminal alt.:
+                    <a
+                        href="https://ghostty.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >ghostty</a
+                    >
+                </li>
+                <li>
+                    Shell:
+                    <a
+                        href="https://zsh.sourceforge.io/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >zsh</a
+                    >
+                </li>
+
+                <br />
+
+                <li>
+                    Theming Engine:
+                    <a
+                        href="https://github.com/dylanaraps/pywal"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >pywal</a
+                    >
+                </li>
+
+                <br />
+
+                <li>
+                    Browser:
+                    <a
+                        href="https://qutebrowser.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >qutebrowser</a
+                    >
+                </li>
+                <li>
+                    Browser alt.:
+                    <a
+                        href="https://librewolf.net/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >librewolf</a
+                    >
+                </li>
+
+                <br />
+
+                <li>
+                    Editor:
+                    <a
+                        href="https://micro-editor.github.io/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >micro</a
+                    >
+                </li>
+                <li>
+                    Editor Alt.:
+                    <a
+                        href="https://helix-editor.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >helix</a
+                    >
+                </li>
+
+                <br />
+
+                <li>
+                    Bootloader:
+                    <a
+                        href="https://github.com/limine-bootloader/limine"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >limine</a
+                    >
+                </li>
+                <li>
+                    Screenshot Util:
+                    <a
+                        href="https://gitlab.freedesktop.org/emersion/grim"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >grim</a
+                    >
+                </li>
+                <li>
+                    Region Selector:
+                    <a
+                        href="https://github.com/emersion/slurp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >slurp</a
+                    >
+                </li>
+                <li>
+                    Clipboard Manager:
+                    <a
+                        href="https://github.com/bugaevc/wl-clipboard"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >wl-clipboard</a
+                    >
+                </li>
+            </ul>
+
+            <br />
+
+            <p>
+                Development tools, such as <em>git</em>, <em>gcc</em> and
+                <em>make</em>, were not listed purposefully.
+            </p>
+
+            <hr />
+
+            <h3 id="scripts">Scripts</h3>
+            <p>Small collection of shell scripts.</p>
+            <ul>
+                <li>Wallpaper + pywal theme switcher</li>
+                <li>fc-list | tofi selector</li>
+                <li>pkill -USR1 waybar foot mako ...</li>
+            </ul>
+
+            <hr />
+
+            <h3 id="screensaver">Screensaver</h3>
+            <p>Custom ASCII screensaver.</p>
+
+            <hr />
+
+            <h3 id="wallpapers-fonts">Wallpapers & Fonts</h3>
+            <p>
+                I have gathered a bunch of wallpapers from
+                <a
+                    href="https://osowoso.github.io/Void-Wallpapers/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >Void-Wallpapers</a
+                >
+                and
+                <a
+                    href="https://github.com/xajler/voidlinux-i3/blob/master/.config/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >voidlinux-i3</a
+                >, as well as some cool fonts from
+                <a
+                    href="https://www.nerdfonts.com/font-downloads"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >Nerd Fonts</a
+                >
+                and
+                <a
+                    href="https://github.com/githubnext/monaspace"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >GitHub</a
+                >. <br /><br />
+                The following list contains every font in its regular style:
+            </p>
+            <ul class="font-list">
+                <li style="font-family: &quot;Anonymous Pro&quot;, monospace">
+                    AnonymiceProNerdFont-Regular
+                </li>
+                <li style="font-family: &quot;Commit Mono&quot;, monospace">
+                    CommitMonoNerdFont-Regular
+                </li>
+                <li style="font-family: &quot;Droid Sans Mono&quot;, monospace">
+                    DroidSansMNerdFontMono-Regular
+                </li>
+                <li style="font-family: &quot;Gohu&quot;, monospace">
+                    GohuFontuni14NerdFont-Regular
+                </li>
+                <li style="font-family: &quot;Hurmit&quot;, monospace">
+                    HurmitNerdFont-Regular
+                </li>
+                <li style="font-family: &quot;Intel One Mono&quot;, monospace">
+                    IntoneMonoNerdFont-Regular
+                </li>
+                <li style="font-family: &quot;Iosevka Term&quot;, monospace">
+                    IosevkaTermNerdFontMono-Regular
+                </li>
+                <li
+                    style="
+                        font-family: &quot;Monaspace Argon NF&quot;, monospace;
+                    "
+                >
+                    MonaspaceArgonNF-Regular
+                </li>
+                <li
+                    style="
+                        font-family:
+                            &quot;Monaspace Krypton NF&quot;, monospace;
+                    "
+                >
+                    MonaspaceKryptonNF-Regular
+                </li>
+                <li
+                    style="
+                        font-family: &quot;Monaspace Neon NF&quot;, monospace;
+                    "
+                >
+                    MonaspaceNeonNF-Regular
+                </li>
+                <li
+                    style="
+                        font-family: &quot;Monaspace Radon NF&quot;, monospace;
+                    "
+                >
+                    MonaspaceRadonNF-Regular
+                </li>
+                <li
+                    style="
+                        font-family: &quot;Monaspace Xenon NF&quot;, monospace;
+                    "
+                >
+                    MonaspaceXenonNF-Regular
+                </li>
+                <li style="font-family: &quot;Mononoki&quot;, monospace">
+                    MononokiNerdFontMono-Regular
+                </li>
+                <li style="font-family: &quot;ProFont&quot;, monospace">
+                    ProFontWindowsNerdFont-Regular
+                </li>
+                <li style="font-family: &quot;Proggy Clean&quot;, monospace">
+                    ProggyCleanNerdFontMono-Regular
+                </li>
+                <li style="font-family: &quot;Share Tech Mono&quot;, monospace">
+                    ShureTechMonoNerdFontMono-Regular
+                </li>
+                <li style="font-family: &quot;Terminus&quot;, monospace">
+                    TerminessNerdFontMono-Regular
+                </li>
+            </ul>
+
+            <p>
+                And here's one of the included wallpapers, just to give you a
+                little taste:
+            </p>
+            <img src="../assets/ntr/54.png" alt="xxx" />
+
+            <p>
+                It is important to note that all wallpapers were first optimized
+                with
+                <a
+                    href="https://github.com/oxipng/oxipng"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >oxipng</a
+                >
+                and then resized to 1366x768 using
+                <a
+                    href="https://imagemagick.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >imagemagick</a
+                >.
+                <br />
+                The chosen 13 (actually 17) fonts and 51 wallpapers (zipped) can
+                be independently downloaded by clicking the buttons below.
+            </p>
+            <button id="download-fonts">Fonts</button>
+            <button id="download-wallpapers">Wallpapers</button>
+
+            <br /><br />
+        </article>
+
+        <script src="../js/theme.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const themeSwitcher = new ThemeSwitcher();
+                themeSwitcher.init();
+            });
+
+            document
+                .getElementById("download-fonts")
+                .addEventListener("click", () => {
+                    window.location.href = "../assets/ntr/fonts.zip";
+                });
+
+            document
+                .getElementById("download-wallpapers")
+                .addEventListener("click", () => {
+                    window.location.href = "../assets/ntr/wallpapers.zip";
+                });
+        </script>
+    </body>
+</html>

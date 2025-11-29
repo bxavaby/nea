@@ -1,0 +1,72 @@
+@font-face {
+    font-family: "Anonymous Pro";
+    src: url("../fonts/ntr/AnonymiceProNerdFont-Regular.ttf");
+}
+@font-face {
+    font-family: "Commit Mono";
+    src: url("../fonts/ntr/CommitMonoNerdFont-Regular.otf");
+}
+@font-face {
+    font-family: "Droid Sans Mono";
+    src: url("../fonts/ntr/DroidSansMNerdFontMono-Regular.otf");
+}
+@font-face {
+    font-family: "Gohu";
+    src: url("../fonts/ntr/GohuFontuni14NerdFont-Regular.ttf");
+}
+@font-face {
+    font-family: "Hurmit";
+    src: url("../fonts/ntr/HurmitNerdFont-Regular.otf");
+}
+@font-face {
+    font-family: "Intel One Mono";
+    src: url("../fonts/ntr/IntoneMonoNerdFont-Regular.ttf");
+}
+@font-face {
+    font-family: "Iosevka Term";
+    src: url("../fonts/ntr/IosevkaTermNerdFontMono-Regular.ttf");
+}
+@font-face {
+    font-family: "Monaspace Argon NF";
+    src: url("../fonts/ntr/MonaspaceArgonNF-Regular.otf");
+}
+@font-face {
+    font-family: "Monaspace Krypton NF";
+    src: url("../fonts/ntr/MonaspaceKryptonNF-Regular.otf");
+}
+@font-face {
+    font-family: "Monaspace Neon NF";
+    src: url("../fonts/ntr/MonaspaceNeonNF-Regular.otf");
+}
+@font-face {
+    font-family: "Monaspace Radon NF";
+    src: url("../fonts/ntr/MonaspaceRadonNF-Regular.otf");
+}
+@font-face {
+    font-family: "Monaspace Xenon NF";
+    src: url("../fonts/ntr/MonaspaceXenonNF-Regular.otf");
+}
+@font-face {
+    font-family: "Mononoki";
+    src: url("../fonts/ntr/MononokiNerdFontMono-Regular.ttf");
+}
+@font-face {
+    font-family: "ProFont";
+    src: url("../fonts/ntr/ProFontWindowsNerdFont-Regular.ttf");
+}
+@font-face {
+    font-family: "Proggy Clean";
+    src: url("../fonts/ntr/ProggyCleanNerdFontMono-Regular.ttf");
+}
+@font-face {
+    font-family: "Share Tech Mono";
+    src: url("../fonts/ntr/ShureTechMonoNerdFontMono-Regular.ttf");
+}
+@font-face {
+    font-family: "Terminus";
+    src: url("fonts/TerminessNerdFontMono-Regular.ttf");
+}
+
+.font-list li {
+    margin-bottom: 0.5em;
+}
