@@ -4,6 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- <meta name="robots" content="noindex, nofollow" /> -->
+        <meta name="robots" content="noai, noimageai, noodp" />
+        <meta name="referrer" content="no-referrer" />
         <meta name="theme-color" content="#100f13" id="theme-color-meta" />
         <meta property="og:title" content="nü-entroarch" />
         <meta
@@ -203,6 +205,10 @@
                         );
                         // Fallback to "JAN 2088"
                     });
+
+                if ("serviceWorker" in navigator) {
+                    navigator.serviceWorker.register("/sw.js");
+                }
             });
         </script>
     </body>
