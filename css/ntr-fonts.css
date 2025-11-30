@@ -64,7 +64,7 @@
 }
 @font-face {
     font-family: "Terminus";
-    src: url("fonts/TerminessNerdFontMono-Regular.ttf");
+    src: url("../fonts/ntr/TerminessNerdFontMono-Regular.ttf");
 }
 
 .font-list li {
