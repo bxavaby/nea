@@ -1,4 +1,4 @@
-/* ./js/sw.js */
+// ./js/sw.js
 
 self.addEventListener("fetch", (event) => {
   const ua = event.request.headers.get("user-agent") || "";

@@ -123,6 +123,7 @@
             <!-- <span class="footer-center-below">chronicling the computable</span> -->
         </footer>
 
+        <script src="js/nuvis.js" defer></script>
         <script src="js/theme.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
@@ -207,7 +208,7 @@
                     });
 
                 if ("serviceWorker" in navigator) {
-                    navigator.serviceWorker.register("/sw.js");
+                    navigator.serviceWorker.register("js/sw.js");
                 }
             });
         </script>
