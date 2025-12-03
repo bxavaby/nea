@@ -321,7 +321,7 @@ button {
         inset 1px 1px #fff,
         inset -2px -2px rgb(158, 158, 158),
         inset 2px 2px #ffffff;
-    font-size: 0.9em;
+    font-size: 0.69em;
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 5px 30px;
@@ -362,6 +362,9 @@ button:active {
     table {
         max-width: 469px;
         display: table;
+    }
+    button {
+        font-size: 0.9em;
     }
 }
 
