@@ -308,7 +308,7 @@ video {
 }
 */
 
-/* + buttons && badges 2 */
+/* + buttons && links && badges 2 */
 button {
     font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
     color: var(--bg);
@@ -359,6 +359,62 @@ button:active {
     color: var(--acc);
     outline: none;
     opacity: 1;
+}
+
+/* Details & Summary */
+details {
+    margin-bottom: 1rem;
+}
+
+details > summary {
+    padding: 0.69rem 1rem;
+    cursor: pointer;
+    font-family: "DepartureMono", monospace;
+    color: var(--txt);
+    outline: none;
+}
+
+details > summary::marker {
+    color: var(--acc);
+}
+
+/* Fieldset & Legend */
+fieldset {
+    border: 1px dotted var(--ter);
+    padding: 1.2rem 1.8rem;
+    margin: 1.5rem 0;
+    max-width: 420px;
+}
+
+legend {
+    font-family: "DepartureMono", monospace;
+    font-weight: normal;
+    padding: 0 0.5rem;
+    color: var(--sec);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Meter */
+meter {
+    width: 100%;
+    height: 1rem;
+}
+
+meter::-webkit-meter-bar {
+    background: var(--ter);
+    border: none;
+    border-radius: 0;
+}
+
+meter::-webkit-meter-optimum-value,
+meter::-webkit-meter-suboptimum-value,
+meter::-webkit-meter-even-less-good-value {
+    background: var(--acc);
+}
+
+meter::-moz-meter-bar {
+    background: var(--acc);
 }
 
 /* Larger screens */
