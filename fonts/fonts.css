@@ -19,3 +19,10 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: "MonaspaceRadonNF";
+    src: url("MonaspaceRadonNF-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}

@@ -275,6 +275,7 @@ footer a:hover {
     transition:
         color 0.15s,
         text-decoration-color 0.15s;
+    /* box-shadow: 2px 2px 0 var(--acc); */
 }
 
 .entry-title:hover,

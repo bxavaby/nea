@@ -8,9 +8,9 @@
 .b34uty-s133p {
     --bg: oklch(0 0 0);
     --txt: oklch(0.625 0.217 352.4);
-    --acc: oklch(0.367 0.057 261.3);
-    --sec: oklch(0.489 0.041 187);
-    --ter: oklch(0.305 0.089 270.8);
+    --acc: oklch(0.305 0.089 270.8);
+    --sec: oklch(0.367 0.057 261.3);
+    --ter: oklch(0.489 0.041 187);
 }
 
 /* Palette::new-main::trash-panda */

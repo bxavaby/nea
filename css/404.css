@@ -1,0 +1,104 @@
+@import url("../fonts/fonts.css");
+
+.cntnr-404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
+}
+
+.status-header {
+    font-family: "DepartureMono", monospace;
+    font-size: 1.2rem;
+    color: var(--acc);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 4rem 0;
+    padding: 0;
+}
+
+.poem {
+    position: relative;
+    margin: 0;
+}
+
+.stanza {
+    position: relative;
+    padding-left: 2rem;
+    line-height: 1.7;
+    color: var(--txt);
+    font-family: "MonaspaceRadonNF", monospace;
+    font-size: 0.88rem;
+}
+
+.stanza::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: var(--txt);
+    opacity: 0.69;
+}
+
+.stanza p {
+    margin: 0.2rem 0;
+}
+
+.indent {
+    padding-left: 2ch;
+}
+
+.legend {
+    text-align: right;
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    opacity: 0.69;
+}
+
+.back-link {
+    font-family: "ShureTechMonoNerdFontMono-Regular", monospace;
+    font-size: 1rem;
+    margin-top: 4rem;
+    color: var(--sec);
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s;
+}
+
+.back-link:hover,
+.back-link:focus {
+    color: var(--acc);
+    outline: none;
+    background-color: transparent;
+}
+
+@media (min-width: 540px) {
+    .cntnr-404 {
+        padding: 2rem;
+    }
+
+    .status-header {
+        font-size: 1.4rem;
+        letter-spacing: 0.2em;
+    }
+
+    .stanza {
+        font-size: 1rem;
+    }
+
+    .stanza p {
+        white-space: nowrap;
+    }
+
+    .legend {
+        font-size: 0.9rem;
+    }
+}
