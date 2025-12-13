@@ -9,7 +9,7 @@
 }
 
 .ascii-item {
-    text-align: center;
+    text-align: left;
 }
 
 /* ASCII showcase */
@@ -21,15 +21,16 @@ pre.ascii {
 
     position: relative;
     border: 1px solid var(--sec);
-    padding: 1.8rem;
-    margin: 1.5rem 0;
+    padding: 1rem;
+    margin: 1rem 0;
     background: none;
-    font-family: "MonaspaceRadonNF", monospace;
+    font-family: "MonaspaceNeonNF", monospace;
     font-size: 0.9rem;
     line-height: 1.2;
 
-    user-select: all;
-    -webkit-user-select: all;
+    /* user-select: all; */
+    /* -webkit-user-select: all; */
+    user-select: none;
 }
 
 pre.ascii::before {
@@ -41,7 +42,7 @@ pre.ascii::before {
     bottom: 0;
     z-index: 1;
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.88)),
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.88)),
         url("../assets/imgs/al.png");
 
     background-size: cover;
@@ -49,6 +50,7 @@ pre.ascii::before {
 }
 
 pre.ascii > code {
+    font-family: "MonaspaceNeonNF", monospace;
     position: relative;
     z-index: 2;
     color: #fff;
@@ -71,6 +73,9 @@ pre.ascii > code {
 @media (min-width: 540px) {
     .ascii-gallery {
         justify-content: flex-start;
+    }
+    pre.ascii {
+        padding: 8rem;
     }
 }
 
