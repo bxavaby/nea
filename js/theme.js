@@ -45,20 +45,12 @@ class ThemeSwitcher {
     setTimeout(() => this.updateThemeColor(), 0);
   }
 
-  /**
-   * Apply theme and save it to localStorage
-   * @param {string}
-   */
   setTheme(theme) {
     this.body.classList.remove(...Object.values(this.themes));
     this.body.classList.add(theme);
     localStorage.setItem(this.storageKey, theme);
   }
 
-  /**
-   * Get current theme from class
-   * @returns {string}
-   */
   getCurrentTheme() {
     return this.body.classList.contains(this.themes.DARK)
       ? this.themes.DARK
