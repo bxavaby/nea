@@ -8,8 +8,8 @@
 
 :root {
     --header-height: 4.5rem;
-    --footer-height: 2.5rem;
-    /* --footer-height: 3rem; */
+    /* --footer-height: 2.5rem; */
+    --footer-height: 3rem;
 }
 
 * {
@@ -167,6 +167,7 @@ footer {
     height: var(--footer-height);
     background: var(--txt);
     color: var(--bg);
+    padding-bottom: 0.8rem;
     /*
     display: flex;
     flex-wrap: wrap;
