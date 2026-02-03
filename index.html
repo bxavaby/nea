@@ -4,8 +4,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- <meta name="robots" content="noindex, nofollow" /> -->
-        <meta name="robots" content="noai, noimageai, noodp" />
+        <meta name="robots" content="noai, noimageai" />
         <meta name="referrer" content="no-referrer" />
+
         <meta name="theme-color" content="#100f13" id="theme-color-meta" />
         <meta property="og:title" content="nü-entroarch" />
         <meta
@@ -126,8 +127,8 @@
             <!-- <span class="footer-center-below">chronicling the computable</span> -->
         </footer>
 
-        <script src="js/nuvis.js" defer></script>
-        <script src="js/theme.js"></script>
+        <script src="js/nuvis.min.js" defer></script>
+        <script src="js/theme.min.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 // Theme switcher
@@ -211,7 +212,7 @@
                     });
 
                 if ("serviceWorker" in navigator) {
-                    navigator.serviceWorker.register("js/sw.js");
+                    navigator.serviceWorker.register("js/sw.min.js");
                 }
             });
         </script>

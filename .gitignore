@@ -1,8 +1,12 @@
 node_modules/
 package-lock.json
 
-/assets/fi-op2
-/assets/fi-op3
-/assets/fi-op4
-/assets/svgs
-/assets/ntr/fonts.zip
+assets/fi-op2
+assets/fi-op3
+assets/fi-op4
+assets/svgs
+assets/ntr/fonts.zip
+
+js/nuvis.js
+js/sw.js
+js/theme.js
