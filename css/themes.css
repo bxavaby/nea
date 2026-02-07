@@ -23,6 +23,16 @@
     --ter: oklch(0.244 0.019 284.9);
 }
 
+/* Palette::wip::persian-ghost */
+.persian-ghost {
+    --bg: oklch(0.313 0.159 278.585);
+    --bg-meta: #27187e;
+    --txt: oklch(0.978 0.011 286.202);
+    --acc: oklch(0.161 0.027 194.769);
+    --sec: oklch(0.645 0.187 7.866);
+    --ter: oklch(0.191 0 0);
+}
+
 /* Palette::alternative::sadakiyo5 */
 .sadakiyo5 {
     --bg: oklch(0.457 0.031 285.1);
