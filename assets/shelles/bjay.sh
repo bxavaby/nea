@@ -1,5 +1,4 @@
 #!/bin/bash
-# bjay.sh - a lashware util
 
 set -e
 

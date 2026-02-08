@@ -1,7 +1,6 @@
 #!/bin/bash
-# beam.sh - a lashware util (share files via ngrok w/ QR)
 
-# set -e not needed, since we are running background processes
+# set -e not needed
 
 # > Palette: Alien Microbes
 c_base="#8cff96"

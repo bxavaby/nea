@@ -1,5 +1,4 @@
 #!/bin/bash
-# obsera.sh - a lashware util (voguish IP locator)
 
 set -e
 

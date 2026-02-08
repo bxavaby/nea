@@ -1,5 +1,4 @@
 #!/bin/bash
-# grasp.sh - a lashware util (voguish command mem)
 
 set -Eeuo pipefail
 IFS=$'\n\t'

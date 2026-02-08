@@ -29,8 +29,35 @@
 
         <h1>Shelles</h1>
 
-        <!-- <img src="../assets/imgs/lw.png" alt="lw" loading="lazy" width="400" /> -->
+        <img
+            class="no-border-no-margin"
+            src="https://img.shields.io/badge/Count-6-8f7fb0?style=plastic"
+            alt="Script Count"
+        />
 
+        <img
+            class="no-border-no-margin"
+            src="https://img.shields.io/badge/Repo-Nahh-745380?style=plastic"
+            alt="Repo Nahh"
+        />
+
+        <!-- <img
+                class="no-border-no-margin"
+                src="https://img.shields.io/badge/Linux-Full%20Support-8cff96?style=plastic"
+                alt="Linux"
+            />
+            <img
+                class="no-border-no-margin"
+                src="https://img.shields.io/badge/macOS-Partial%20Support-8f7fb0?style=plastic"
+                alt="MacOS"
+            />
+            <img
+                class="no-border-no-margin"
+                src="https://img.shields.io/badge/Windows-Limited%20Support-745380?style=plastic"
+                alt="Windows"
+                /> -->
+
+        <br />
         <br />
 
         <article>
@@ -38,7 +65,8 @@
                 Welcome to my <em>growing</em> collection of shell scripts. Each
                 piece is designed to either 1. automate a task I perform often,
                 2. cut corners in the CLI, or 3. experiment with odd features I
-                find interesting.
+                find interesting. There are quirky net tools and productivity
+                enhancers in the mix, so you are sure to find something useful.
                 <br />
                 <br />
                 They are all written in
@@ -56,16 +84,237 @@
                     rel="noopener noreferrer"
                     class="view-more"
                     >Gum</a
-                >, for instance, is necessary for every script to function,
-                because of its interactive features and coolness potential.
+                >, for instance, is necessary for every script to function, due
+                to its interactive features primarily, but also their aesthetic
+                counterpart.
                 <br />
                 <br />
-                Currently, I am able to present 6 pieces. WIP. Too sleepy rn.
+                Before I present the pieces, consider that
+                <strong>some features may fail on MacOS</strong> and
+                <strong>WSL is recommended for Windows users</strong>.
             </p>
+
+            <hr />
+
+            <h2>
+                <u>beam.sh</u> <br />
+                <br />
+                >> <em>share files ephemerally via ngrok</em>
+            </h2>
+
+            <h3>Dependencies</h3>
+            <ul>
+                <li><code>curl</code></li>
+                <li><code>fzf</code></li>
+                <li><code>gum</code></li>
+                <li><code>jq</code></li>
+                <li><code>ngrok</code></li>
+                <li><code>python3</code></li>
+                <li><code>qrencode</code></li>
+                <li><code>ss</code></li>
+            </ul>
+
+            <h3>Workflow</h3>
+            <ol>
+                <li>Multi-file selection fzf</li>
+                <li>Automatic ngrok tunnel</li>
+                <li>QR code generation</li>
+                <li>Auto-cleanup</li>
+            </ol>
+
+            <br />
+
+            <p>
+                In addition to the dependencies above,
+                <code>beam.sh</code> requires an authtoken, which can be
+                obtained from
+                <a
+                    href="https://dashboard.ngrok.com/get-started/your-authtoken "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                >
+                    here</a
+                >
+                and defined as an environment variable, like so:
+            </p>
+
+            <pre><code>NGROK_AUTHTOKEN="your_ngrok_authtoken"
+</code></pre>
+
+            <br />
+
+            <button id="download-beam">Get it</button>
+
+            <hr />
+
+            <h2>
+                <u>bjay.sh</u> <br />
+                <br />
+                >> <em>sightly password/pin gen</em>
+            </h2>
+
+            <h3>Dependencies</h3>
+            <ul>
+                <li><code>gum</code></li>
+                <li><code>wl-copy</code></li>
+            </ul>
+
+            <h3>Workflow</h3>
+            <ol>
+                <li>Customize char sets and length</li>
+                <li>Pick from presets</li>
+                <li>Automatic copy to clipboard</li>
+                <li>Self-destruct with timer</li>
+            </ol>
+
+            <br />
+
+            <button id="download-bjay">Get it</button>
+
+            <hr />
+
+            <h2>
+                <u>goxi.sh</u> <br />
+                <br />
+                >>
+                <em
+                    >glamorous
+                    <a
+                        href="https://github.com/oxipng/oxipng"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >oxipng</a
+                    >
+                    wrapper</em
+                >
+            </h2>
+
+            <h3>Dependencies</h3>
+            <ul>
+                <li><code>fzf</code></li>
+                <li><code>gum</code></li>
+                <li><code>oxipng</code></li>
+            </ul>
+
+            <h3>Workflow</h3>
+            <ol>
+                <li>Directory browsing with fzf</li>
+                <li>Multi-file selection interface</li>
+                <li>Progress reporting and stats</li>
+                <li>Detailed output</li>
+                <li>Safe optimization setts</li>
+            </ol>
+
+            <br />
+
+            <button id="download-goxi">Get it</button>
+
+            <hr />
+
+            <h2>
+                <u>grasp.sh</u> <br />
+                <br />
+                >> <em>a fuzzy memory extension for the cli</em>
+            </h2>
+
+            <h3>Dependencies</h3>
+            <ul>
+                <li><code>fzf</code></li>
+                <li><code>gum</code></li>
+                <li><code>jq</code></li>
+            </ul>
+
+            <h3>Workflow</h3>
+            <ol>
+                <li>Store commands with descriptions and tags</li>
+                <li>Search easily with fzf</li>
+                <li>One-key copy to clipboard</li>
+                <li>Edit and delete ops</li>
+            </ol>
+
+            <br />
+
+            <button id="download-grasp">Get it</button>
+
+            <hr />
+
+            <h2>
+                <u>obsera.sh</u> <br />
+                <br />
+                >> <em>voguish IP geolocator</em>
+            </h2>
+
+            <h3>Dependencies</h3>
+            <ul>
+                <li><code>curl</code></li>
+                <li><code>dig</code></li>
+                <li><code>gum</code></li>
+                <li><code>jq</code></li>
+                <li><code>nslookup</code></li>
+            </ul>
+
+            <h3>Workflow</h3>
+            <ol>
+                <li>195+ countries with FLAGS!</li>
+                <li>Domain resolution</li>
+                <li>Private IP detection + public IP fallback</li>
+                <li>Comprehensive location data (ISP, ASN, timezone)</li>
+                <li>Automatic copy to clipboard</li>
+            </ol>
+
+            <br />
+
+            <button id="download-obsera">Get it</button>
+
+            <hr />
+
+            <h2>
+                <u>wallopt.sh</u> <br />
+                <br />
+                >> <em>local wallpaper picker with preview</em>
+            </h2>
+
+            <h3>Dependencies</h3>
+            <ul>
+                <li><code>gum</code></li>
+                <li><code>hyprctl</code> (hopefully you're on hyprland lol)</li>
+            </ul>
+
+            <h3>Workflow</h3>
+            <ol>
+                <li>Wallpaper list from local directory</li>
+                <li>Image preview in the terminal</li>
+                <li>Clean hyprland integration</li>
+            </ol>
+
+            <br />
+
+            <button id="download-wallopt">Get it</button>
+
+            <hr />
+
+            <p>
+                <code>reqx.sh</code>, <code>wallpull.sh</code>,
+                <code>warp.sh</code>, and more to come... <br />
+                <br />
+                Enjoy!
+            </p>
+
+            <br />
+            <br />
+
+            <a href="#top" class="back-to-top" aria-label="Back to top">Rise</a>
         </article>
 
-        <br />
-        <br />
+        <!-- <img
+            class="no-border"
+            src="../assets/imgs/lw.png"
+            alt="lw"
+            loading="lazy"
+            width="200"
+            /> -->
 
         <script src="../js/theme.min.js"></script>
 
@@ -74,6 +323,43 @@
                 const themeSwitcher = new ThemeSwitcher();
                 themeSwitcher.init();
             });
+
+            document
+                .getElementById("download-beam")
+                .addEventListener("click", () => {
+                    ((window.location.href = "../assets/shelles/beam.sh"),
+                        "_blank");
+                });
+            document
+                .getElementById("download-bjay")
+                .addEventListener("click", () => {
+                    ((window.location.href = "../assets/shelles/bjay.sh"),
+                        "_blank");
+                });
+            document
+                .getElementById("download-goxi")
+                .addEventListener("click", () => {
+                    ((window.location.href = "../assets/shelles/goxi.sh"),
+                        "_blank");
+                });
+            document
+                .getElementById("download-grasp")
+                .addEventListener("click", () => {
+                    ((window.location.href = "../assets/shelles/grasp.sh"),
+                        "_blank");
+                });
+            document
+                .getElementById("download-obsera")
+                .addEventListener("click", () => {
+                    ((window.location.href = "../assets/shelles/obsera.sh"),
+                        "_blank");
+                });
+            document
+                .getElementById("download-wallopt")
+                .addEventListener("click", () => {
+                    ((window.location.href = "../assets/shelles/wallopt.sh"),
+                        "_blank");
+                });
         </script>
     </body>
 </html>

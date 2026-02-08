@@ -1,5 +1,4 @@
 #!/bin/bash
-# goxi.sh - a lashware util (oxipng wrapper)
 
 set -e
 

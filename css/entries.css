@@ -280,6 +280,15 @@ img {
     box-sizing: border-box;
 }
 
+.no-border {
+    border: none;
+}
+
+.no-border-no-margin {
+    border: none;
+    margin: 0 0 0 0;
+}
+
 /* No border sometimes looks better */
 /*
 img,

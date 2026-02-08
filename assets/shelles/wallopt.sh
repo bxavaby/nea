@@ -1,5 +1,4 @@
 #!/bin/bash
-# wallopt.sh - a lashware util
 
 set -e
 
