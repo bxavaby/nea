@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "bxav",
-  "license": "ISC",
+  "license": "CC BY-NC 4.0",
   "type": "commonjs",
   "devDependencies": {
     "vite": "^7.2.2"
