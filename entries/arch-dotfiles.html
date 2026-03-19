@@ -29,7 +29,397 @@
 
         <h1>Arch Dotfiles</h1>
 
-        <article></article>
+        <br />
+
+        <article>
+            <p>
+                Welcome! As written
+                <a
+                    href="../entries/infrastructure.html#arch-dotfiles"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >here</a
+                >, this is the rice I am currently rocking on my ThinkPad X1
+                Carbon Gen 12.
+            </p>
+
+            <hr />
+
+            <h3>TL;DR</h3>
+            <p>Jump straight to the config you seek!</p>
+            <ol>
+                <li><a href="#wm" class="view-more">Hyprland</a></li>
+                <li>
+                    <a href="#bar" class="view-more">Waybar</a>
+                </li>
+                <li>
+                    <a href="#launcher" class="view-more">Rofi</a>
+                </li>
+                <li><a href="#noti" class="view-more">Mako</a></li>
+                <li>
+                    <a href="#terminal" class="view-more">Kitty</a>
+                </li>
+                <li>
+                    <a href="#shell" class="view-more">Zsh</a>
+                </li>
+                <li>
+                    <a href="#fetcher" class="view-more">Macchina</a>
+                </li>
+            </ol>
+
+            <hr />
+
+            <img src="../assets/sss/ss-29.png" alt="main" loading="lazy" />
+            <img src="../assets/sss/ss-07.png" alt="term" loading="lazy" />
+            <img src="../assets/sss/ss-01.png" alt="wppp" loading="lazy" />
+            <img src="../assets/sss/ss-99.png" alt="mrda" loading="lazy" />
+
+            <p>
+                To avoid repetition, you can find the palette
+                <a
+                    href="../entries/infrastructure.html#alien-microbes"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >here</a
+                >! As for the fetcher, the one you see in the second picture is
+                <a
+                    href="https://github.com/Macchina-CLI/macchina"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >macchina</a
+                >, and I will be sharing my config for it too.
+            </p>
+
+            <hr />
+
+            <h3>Fetched</h3>
+            <ul>
+                <li>
+                    Compositor/WM:
+                    <a
+                        href="https://hypr.land/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >hyprland</a
+                    >
+                </li>
+                <li>
+                    Status Bar:
+                    <a
+                        href="https://waybar.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >waybar</a
+                    >
+                </li>
+                <li>
+                    Launcher:
+                    <a
+                        href="https://davatorium.github.io/rofi/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >rofi</a
+                    >
+                </li>
+                <li>
+                    Notification Daemon:
+                    <a
+                        href="https://github.com/emersion/mako"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >mako</a
+                    >
+                </li>
+                <li>
+                    Terminal:
+                    <a
+                        href="https://sw.kovidgoyal.net/kitty/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >kitty</a
+                    >
+                </li>
+                <li>
+                    Shell:
+                    <a
+                        href="https://zsh.sourceforge.io/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >zsh</a
+                    >
+                </li>
+                <li>
+                    Fetcher:
+                    <a
+                        href="https://github.com/Macchina-CLI/macchina"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >macchina</a
+                    >
+                </li>
+            </ul>
+
+            <h3>Configs</h3>
+            <h5 id="wm">~/.config/hypr/hyprland.conf</h5>
+            <pre><code>
+</code></pre>
+
+            <h5>~/.config/hypr/colors.conf</h5>
+            <pre><code>
+</code></pre>
+
+            <br />
+
+            <h5 id="bar">~/.config/waybar/config</h5>
+            <pre><code>
+</code></pre>
+
+            <h5>~/.config/waybar/style.css</h5>
+            <pre><code>
+</code></pre>
+
+            <br />
+
+            <h5 id="launcher">~/.config/rofi/config.rasi</h5>
+            <pre><code>
+</code></pre>
+
+            <h5>~/.config/rofi/colors.rasi</h5>
+            <pre><code>
+</code></pre>
+
+            <br />
+
+            <h5 id="noti">~/.config/mako/config</h5>
+            <pre><code># Palette
+background-color=#1a181a
+text-color=#fff3f2
+border-color=#56bf70
+progress-color=#56bf70
+
+# General
+font=JetBrainsMono Nerd Font 10
+width=350
+layer=overlay
+anchor=top-right
+sort=-time
+
+# Layout & Style
+margin=10
+padding=15
+border-size=2
+border-radius=8
+icons=1
+max-icon-size=64
+default-timeout=2000
+ignore-timeout=0
+max-visible=5
+
+# States
+[urgency=low]
+border-color=#8cff96
+text-color=#8cff96
+
+[urgency=high]
+border-color=#acaab2
+text-color=#acaab2
+ignore-timeout=1
+default-timeout=0
+
+[grouped]
+text-color=#56bf70
+</code></pre>
+
+            <br />
+
+            <h5 id="terminal">~/.config/kitty/kitty.conf</h5>
+            <pre><code># Palette
+include ~/.config/kitty/colors.conf
+
+# Font
+font_family              JetBrainsMono NerdFont
+font_size                13
+bold_font                auto
+italic_font              auto
+bold_italic_font         auto
+
+# Window look & feel
+window_padding_width     10
+background_corner_radius 8
+hide_window_decorations  titlebar-and-corners
+background_opacity       0.90
+
+# Behaviour
+scrollback_lines         10000
+enable_audio_bell        no
+
+# Key overrides
+# map ctrl+shift+c         copy_to_clipboard
+# map ctrl+shift+v         paste_from_clipboard
+map ctrl+shift+f         launch --stdin stdin://less
+# map ctrl+shift+r         send_text "source ~/.zshrc\n"
+</code></pre>
+
+            <h5>~/.config/kitty/colors.conf</h5>
+            <pre><code>foreground      #fff3f2
+selection_background #acaab2
+selection_foreground #1a181a
+cursor          #56bf70
+color0          #1a181a
+color1          #56bf70
+color2          #8cff96
+color3          #fff3f2
+color4          #8f7fb0
+color5          #745380
+color6          #3b3366
+color7          #acaab2
+color8          #acaab2
+color9          #56bf70
+color10         #8cff96
+color11         #fff3f2
+color12         #8f7fb0
+color13         #745380
+color14         #3b3366
+color15         #fff3f2
+</code></pre>
+
+            <br />
+
+            <h5 id="shell">~/.zshrc</h5>
+            <pre><code>
+
+</code></pre>
+
+            <br />
+
+            <h5 id="fetcher">~/.config/macchina/macchina.toml</h5>
+            <pre><code># Specifies the network interface to use for the LocalIP readout
+interface = "wlan0"
+
+# Lengthen uptime output
+long_uptime = false
+
+# Lengthen shell output
+long_shell = false
+
+# Lengthen kernel output
+long_kernel = false
+
+# Toggle between displaying the current shell or your user's default one.
+current_shell = true
+
+# Toggle between displaying the number of physical or logical cores of your
+# processor.
+physical_cores = true
+
+# Disks to show disk usage for. Defaults to `["/"]`.
+disks = ["/", "/home/user"]
+
+# Show percentage next to disk information
+# disk_space_percentage = true
+
+# Show percentage next to memory information
+# memory_percentage = true
+
+# Themes need to be placed in "$XDG_CONFIG_DIR/macchina/themes" beforehand.
+theme = "Moie"
+
+# Displays only the specified readouts.
+show = ["Host", "Machine", "Kernel", "Distribution", "WindowManager", "Terminal", "Shell"]
+</code></pre>
+
+            <h5>~/.config/macchina/themes/Moie.toml</h5>
+            <pre><code>spacing = 1
+padding = 0
+hide_ascii = false
+prefer_small_ascii = true
+separator = ""
+key_color = "#555568"
+separator_color = "#eeb9c7"
+
+[palette]
+type = "Dark"
+glyph = "||"
+visible = false
+
+[bar]
+glyph           = "-"
+symbol_open     = '['
+symbol_close    = ']'
+hide_delimiters = true
+visible         = false
+
+[box]
+title           = ""
+border          = "rounded" # plain, thick, double, rounded
+visible         = false
+
+[box.inner_margin]
+x               = 1
+y               = 0
+
+[custom_ascii]
+color = "#b9eedc"
+path = "~/ascii/dna-small.txt"
+
+[randomize]
+key_color       = false
+separator_color = false
+
+[keys]
+host            = "HST"
+kernel          = "KRN"
+battery         = "BTT"
+os              = "OS"
+de              = "DE"
+wm              = "WM"
+distro          = "DST"
+terminal        = "TE"
+shell           = "SH"
+packages        = "PKG"
+uptime          = "UT"
+memory          = "MEM"
+machine         = "MAC"
+local_ip        = "IP"
+backlight       = "BKL"
+resolution      = "RES"
+cpu_load        = "CLD"
+cpu             = "CPU"
+gpu             = "GPU"
+disk_space      = "DSK"
+</code></pre>
+
+            <br />
+
+            <p>
+                These configs can also be found in my Codeberg
+                <a
+                    href=""
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-more"
+                    >repo</a
+                >
+                (WIP).
+
+                <br />
+                <br />
+
+                <a href="#top" class="back-to-top" aria-label="Back to top"
+                    >Rise</a
+                >
+            </p>
+        </article>
 
         <script src="../js/theme.min.js"></script>
 
