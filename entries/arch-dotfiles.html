@@ -40,7 +40,7 @@
                     rel="noopener noreferrer"
                     class="view-more"
                     >here</a
-                >, this is the rice I am currently rocking on my ThinkPad X1
+                >, this is the 🍚 I am currently rocking on my ThinkPad X1
                 Carbon Gen 12.
             </p>
 
@@ -51,20 +51,23 @@
             <ol>
                 <li><a href="#wm" class="view-more">Hyprland</a></li>
                 <li>
-                    <a href="#bar" class="view-more">Waybar</a>
-                </li>
-                <li>
-                    <a href="#launcher" class="view-more">Rofi</a>
-                </li>
-                <li><a href="#noti" class="view-more">Mako</a></li>
-                <li>
                     <a href="#terminal" class="view-more">Kitty</a>
                 </li>
                 <li>
-                    <a href="#shell" class="view-more">Zsh</a>
+                    <a href="#fetcher" class="view-more">Macchina</a>
+                </li>
+                <li><a href="#noti" class="view-more">Mako</a></li>
+                <li>
+                    <a href="#launcher" class="view-more">Rofi</a>
                 </li>
                 <li>
-                    <a href="#fetcher" class="view-more">Macchina</a>
+                    <a href="#bar" class="view-more">Waybar</a>
+                </li>
+                <li>
+                    <a href="#doc-viewer" class="view-more">Zathura</a>
+                </li>
+                <li>
+                    <a href="#shell" class="view-more">Zsh</a>
                 </li>
             </ol>
 
@@ -74,6 +77,7 @@
             <img src="../assets/sss/ss-07.png" alt="term" loading="lazy" />
             <img src="../assets/sss/ss-01.png" alt="wppp" loading="lazy" />
             <img src="../assets/sss/ss-99.png" alt="mrda" loading="lazy" />
+            <img src="../assets/sss/ss-17.png" alt="zthr" loading="lazy" />
 
             <p>
                 To avoid repetition, you can find the palette
@@ -167,25 +171,456 @@
                         >macchina</a
                     >
                 </li>
+                <li>
+                    Document Viewer:
+                    <a
+                        href="https://pwmt.org/projects/zathura/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="view-more"
+                        >zathura</a
+                    >
+                </li>
             </ul>
 
             <h3>Configs</h3>
             <h5 id="wm">~/.config/hypr/hyprland.conf</h5>
-            <pre><code>
+            <pre><code>############
+# hyprconf #
+#     4    #
+# hyprland #
+############
+
+
+# Colors
+# -------
+source = ~/.config/hypr/colors.conf
+
+
+# Monitors
+# --------
+monitor = eDP-1,preferred,auto,1
+
+
+# Overall shite
+# -------------
+general {
+    gaps_in           = 3
+    gaps_out          = 8
+    border_size       = 2
+    col.active_border   = $accent $crust 45deg
+    col.inactive_border = $crust
+    layout            = dwindle
+    resize_on_border  = true
+}
+
+dwindle {
+    preserve_split = true
+    # force_split = 2
+}
+
+# Animationes
+# -----------
+animations {
+    enabled   = true
+    bezier    = wind, 0.05, 0.9, 0.1, 1.05
+    bezier    = winIn, 0.1, 1.1, 0.1, 1.1
+    bezier    = winOut, 0.3, -0.3, 0, 1
+    bezier    = linear, 1, 1, 1, 1
+
+    animation = windows,      1, 6, wind,   slide
+    animation = windowsIn,    1, 6, winIn,  slide
+    animation = windowsOut,   1, 5, winOut, slide
+    animation = windowsMove,  1, 5, wind,   slide
+    animation = border,       1, 1, linear
+    animation = borderangle,  1, 30, linear, loop
+    animation = fade,         1, 10, default
+    animation = workspaces,   1, 5, wind
+}
+
+# Decor
+# -----
+decoration {
+    rounding           = 8
+    active_opacity     = 0.9
+    inactive_opacity   = 0.8
+    fullscreen_opacity = 1.0
+
+    shadow {
+        enabled       = true
+        range         = 12
+        render_power  = 4
+        ignore_window = true
+        color         = 0x44000000
+    }
+
+    blur {
+        enabled           = true
+        size              = 6
+        passes            = 3
+        new_optimizations = true
+        ignore_opacity    = true
+        noise             = 0.0117
+        brightness        = 1.0
+    }
+}
+
+
+# Input
+# -----
+input {
+    kb_layout      = zimbabwe dollars
+    follow_mouse   = 1
+    sensitivity    = 0.2
+
+    touchpad {
+        natural_scroll = true
+        scroll_factor  = 0.7
+    }
+}
+
+
+# Auto‑hide
+# ---------
+cursor {
+    inactive_timeout = 5
+}
+
+
+# Exec‑once shite
+# ---------------
+exec-once = dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+...
+
+
+# Open windows in tiled mode
+# --------------------------
+windowrule = tile class Aseprite
+windowrule = size 400 600 initialClass protonvpn-app
+windowrule = center initialClass protonvpn-app
+windowrule = float initialClass protonvpn-app
+
+
+# Binds  (mod = SUPER)
+# --------------------
+# Volume
+# ------
+# bind = , XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%
+# bind = , XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%
+# bind = , XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bind = , XF86AudioRaiseVolume, exec, ~/.config/hypr/scripts/volume.sh up
+bind = , XF86AudioLowerVolume, exec, ~/.config/hypr/scripts/volume.sh down
+bind = , XF86AudioMute,        exec, ~/.config/hypr/scripts/volume.sh mute
+
+# Brightness
+# ----------
+# bind = , XF86MonBrightnessUp, exec, brightnessctl set +10%
+# bind = , XF86MonBrightnessDown, exec, brightnessctl set 10%-
+
+bind = , XF86MonBrightnessUp,   exec, ~/.config/hypr/scripts/brightness.sh up
+bind = , XF86MonBrightnessDown, exec, ~/.config/hypr/scripts/brightness.sh down
+
+# Launchers
+# ---------
+bind = SUPER,   Space,  exec, rofi -show drun -theme ~/.config/rofi/themes/launcher-alien.rasi
+bind = SUPER,   Return, exec, kitty
+bind = SUPER,   B,      exec, brave --enable-features=UseOzonePlatform --ozone-platform=wayland --force-device-scale-factor=1
+bind = SUPER,   T,      exec, thunar
+bind = SUPER,   Y,      exec, yazi
+bind = SUPER,   Z,      exec, zeditor
+bind = SUPER,   A,      exec, aseprite
+bind = SUPER,   V,      exec, protonvpn-app
+bind = SUPER,   L,      exec, ledger-live-desktop
+bind = SUPER,   D,      exec, discord
+bind = SUPER,   M,      exec, /home/bxav/programs/monero-gui-v0.18.4.4/monero-wallet-gui
+
+# Wallpaper
+# ---------
+bind = SUPER, W, exec, kitty -e /home/bxav/.local/bin/wallpaper-picker.sh
+#bind = SUPER, W, exec, rofi -show wallpaper -modi "wallpaper:~/.config/rofi/scripts/rofi-wallpaper.sh" -theme ~/.config/rofi/themes/b34uty-applet.rasi
+
+# Color picker
+# ------------
+bind = SUPER, 0, exec, ~/bitpulse/shelles/cor.sh
+
+# Screenshots
+# -----------
+bind = , Print,          exec, grimblast copy output && notify-send "Screenshot" "Copied to clipboard"
+bind = SUPER, Print,     exec, grimblast copy area
+bind = SUPER SHIFT,Print,exec, grimblast save area "$HOME/Pictures/Screenshots/ss-$(date +%s).png" && notify-send "Screenshot saved"
+
+# Logout / Power
+# --------------
+#bind = SUPER, Escape, exec, wlogout
+bind = SUPER, Escape, exec, rofi -show power -modi "power:~/.config/rofi/scripts/power.sh" -theme ~/.config/rofi/themes/power-alien.rasi
+
+# Window management
+# -----------------
+bind = SUPER, Q, killactive
+bind = SUPER, F, fullscreen
+bind = SUPER SHIFT, T, togglefloating
+bind = SUPER, P, pseudo
+bind = SUPER, J, togglesplit
+
+# Hyprland+Waybar reload
+# ----------------------
+bind = SUPER SHIFT, R, exec, ~/.config/hypr/scripts/reload-dsk.sh
+
+# Focus / Move / Resize
+# ---------------------
+bind = SUPER, h, movefocus, l
+bind = SUPER, l, movefocus, r
+bind = SUPER, k, movefocus, u
+# bind = SUPER, j, movefocus, d
+
+# Resize windows
+# --------------
+bind = SUPER CTRL, h, resizeactive, -30 0
+bind = SUPER CTRL, l, resizeactive, 30 0
+bind = SUPER CTRL, k, resizeactive, 0 -30
+bind = SUPER CTRL, j, resizeactive, 0 30
+
+# Move windows
+# ------------
+bind = SUPER SHIFT, h, movewindow, l
+bind = SUPER SHIFT, l, movewindow, r
+bind = SUPER SHIFT, k, movewindow, u
+bind = SUPER SHIFT, j, movewindow, d
+
+# Switch workspace
+# ----------------
+bind = SUPER, 1, workspace, 1
+bind = SUPER, 2, workspace, 2
+bind = SUPER, 3, workspace, 3
+bind = SUPER, 4, workspace, 4
+bind = SUPER, 5, workspace, 5
+
+# Move active window to workspace
+# -------------------------------
+bind = SUPER SHIFT, 1, movetoworkspace, 1
+bind = SUPER SHIFT, 2, movetoworkspace, 2
+bind = SUPER SHIFT, 3, movetoworkspace, 3
+bind = SUPER SHIFT, 4, movetoworkspace, 4
+bind = SUPER SHIFT, 5, movetoworkspace, 5
+
+# Mouse‑buttons (Lofree Touch)
+# ----------------------------
+#  M4 = 274 (wheel button),  M5 = 275 (thumb-back),  M6 = 276 (thumb-front)
+bindl = , mouse:274, fullscreen, toggle
+bindl = , mouse:275, workspace, e+1
+# bindl = , mouse:276, killactive,
+bindl = , mouse:276, exec, kitty
 </code></pre>
 
             <h5>~/.config/hypr/colors.conf</h5>
-            <pre><code>
+            <pre><code>##############
+# hyprcolors #
+#     4      #
+#  hyprland  #
+##############
+
+$primary    = rgb(56bf70)   # Green
+$secondary  = rgb(8cff96)   # Soft Green
+$text       = rgb(fff3f2)   # White
+$surface    = rgb(acaab2)   # Grey
+$accent     = rgb(8f7fb0)   # Lavender
+$highlight  = rgb(745380)   # Purple
+$background = rgb(3b3366)   # Blue
+$crust      = rgb(1a181a)   # Black
 </code></pre>
 
             <br />
 
             <h5 id="bar">~/.config/waybar/config</h5>
-            <pre><code>
+            <pre><code>{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 10,
+    "margin-top": 10,
+    "margin-left": 16,
+    "margin-right": 16,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/protonvpn",
+        "network",
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "cpu",
+        "memory",
+        "tray"
+    ],
+
+    // Modules
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "on-click": "activate"
+    },
+
+    "hyprland/window": {
+        "format": " >> {}",
+        "max-length": 40,
+        "separate-outputs": true,
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "  {:%H:%M}",
+        "tooltip-format": "<big>{:%A, %d %B %Y}</big>"
+    },
+    "custom/protonvpn": {
+        "format": "󰖂",
+        "on-click": "~/.config/waybar/scripts/on_click_protonvpn.sh",
+        "tooltip": false
+    },
+    "network": {
+        "format-wifi": "  {essid} ({ipaddr})",
+        "format-ethernet": " {ipaddr}",
+        "format-disconnected": "󰤮 Disconnected",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " Muted",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "scroll-step": 5,
+        "on-click": "~/.config/hypr/scripts/volume.sh mute",
+        "tooltip": false
+    },
+    "backlight": {
+        "format": "󰃞 {percent}%",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "states": { "warning": 30, "critical": 15 }
+    },
+    "cpu": { "format": " {usage}%" },
+    "memory": { "format": " {used:0.1f}G" },
+    "tray": { "icon-size": 18, "spacing": 10 }
+}
 </code></pre>
 
             <h5>~/.config/waybar/style.css</h5>
-            <pre><code>
+            <pre><code>/* Alien Microbes w/ transparency */
+@define-color base      alpha(#1a181a, 0.75);
+@define-color surface   alpha(#3b3366, 0.85);
+@define-color highlight #745380;
+@define-color text      #8f7fb0;
+@define-color white     #fff3f2;
+
+/* Global shite */
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  /* font-family: "Pixeloid Mono", monospace; */
+  font-size: 15px;
+  font-weight: bold;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+#clock, #battery, #pulseaudio, #cpu, #memory, #tray, #backlight,
+#custom-protonvpn, #network {
+  background-color: @base;
+  color: @text;
+  border-radius: 8px;
+  /* border: 2px ridge @highlight; */
+  margin: 4px 0;
+  padding: 2px 14px;
+}
+
+/* Workspace and active window */
+#workspaces, #window {
+  background-color: @base;
+  color: @text;
+  margin: 4px 0;
+  padding: 2px 0;
+}
+
+#workspaces {
+  border-radius: 8px 0 0 8px;
+  border-right: 2px inset @highlight;
+}
+#window {
+  border-radius: 0 10px 10px 0;
+  padding-right: 12px;
+}
+
+/* Stylin */
+#workspaces button {
+  padding: 0 10px;
+  color: @text;
+}
+#workspaces button:hover {
+  background-color: @highlight;
+  border-radius: 8px;
+}
+#workspaces button.active {
+  color: @highlight;
+  text-shadow: 0 0 8px @highlight;
+}
+
+#window {
+  color: @text;
+  padding-left: 4px;
+  font-style: italic;
+  border-left: 2px outset @highlight;
+}
+
+#clock {
+  font-size: 15px;
+  border: 2px ridge @highlight;
+}
+
+#pulseaudio.muted, #network.disconnected {
+  color: @highlight;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @highlight;
+}
+#battery.warning,
+#battery.critical {
+  color: @highlight;
+  animation: battery-blink 1s infinite alternate;
+}
+@keyframes battery-blink {
+  to {
+    background-color: @highlight;
+    color: @base;
+  }
+}
 </code></pre>
 
             <br />
@@ -296,8 +731,48 @@ color15         #fff3f2
             <br />
 
             <h5 id="shell">~/.zshrc</h5>
-            <pre><code>
+            <pre><code>echo "Loading .zshrc at $(date)" >> ~/zsh_load.log
 
+export PATH="blablabla"
+
+# Load Powerlevel10k configuration
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+plugins=(
+    git
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    command-not-found
+    fzf
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# Only my most useful
+alias vi='nvim'
+alias hx='helix'
+
+alias ls='exa --icons --group-directories-first --long --modified --header'
+alias la='exa -la --group-directories-first --icons --color=auto'
+alias ll='exa -l --no-permissions --icons --color=auto'
+
+alias reload="source ~/.zshrc"
+alias meteora='curl wttr.in/City'
+alias getrack='yt-dlp --extract-audio --audio-format opus --output "~/Music/%(title)s.%(ext)s"'
+alias m="macchina"
+alias hyprconf="micro ~/.config/hypr/hyprland.conf"
+alias hyprcolors="micro ~/.config/hypr/colors.conf"
+
+
+eval "$(zoxide init zsh)"
+
+eval $(thefuck --alias)
 </code></pre>
 
             <br />
@@ -397,6 +872,18 @@ cpu_load        = "CLD"
 cpu             = "CPU"
 gpu             = "GPU"
 disk_space      = "DSK"
+</code></pre>
+
+            <br />
+
+            <h5 id="doc-viewer">~/.config/zathura/zathurarc</h5>
+            <pre><code># Palette: Alien Microbes
+set default-fg "#745380"
+set default-bg "#1a181a"
+set statusbar-fg "#fff3f2"
+set statusbar-bg "#3b3366"
+
+set font "Monaspace Neon NF"
 </code></pre>
 
             <br />
