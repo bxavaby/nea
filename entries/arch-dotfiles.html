@@ -77,7 +77,7 @@
             <img src="../assets/sss/ss-07.png" alt="term" loading="lazy" />
             <img src="../assets/sss/ss-01.png" alt="wppp" loading="lazy" />
             <img src="../assets/sss/ss-99.png" alt="mrda" loading="lazy" />
-            <img src="../assets/sss/ss-17.png" alt="zthr" loading="lazy" />
+            <img src="../assets/sss/ss-177.png" alt="zthr" loading="lazy" />
 
             <p>
                 To avoid repetition, you can find the palette
@@ -626,11 +626,214 @@ window#waybar {
             <br />
 
             <h5 id="launcher">~/.config/rofi/config.rasi</h5>
-            <pre><code>
+            <pre><code>@theme "~/.config/rofi/themes/launcher-alien.rasi"
+
+configuration {
+  modi: "drun,run,window";
+  show-icons: true;
+  icon-theme: "Papirus-Dark";
+  drun-display-format: "{icon} {name}";
+  display-drun: "Apps:";
+  display-run: "Run:";
+  display-window: "Windows:";
+}
 </code></pre>
 
             <h5>~/.config/rofi/colors.rasi</h5>
-            <pre><code>
+            <pre><code>* {
+  background:      rgba(26,24,26,0.5);  /* #1a181a, 50% */
+  background-alt:  rgba(26,24,26,0.8);  /* #1a181a, 80% */
+  foreground:      #8f7fb0;
+
+  selected:        #8f7fb0;
+  active:          rgba(140,255,150,1);
+  urgent:          #fff3f2;
+}
+</code></pre>
+
+            <h5>~/.config/rofi/scripts/power.sh</h5>
+            <pre><code>#!/usr/bin/env zsh
+if [[ -z $1 ]]; then
+  printf '%s\n' \
+    "  Lock" \
+    "⏾  Suspend" \
+    "  Logout" \
+    "  Reboot" \
+    "  Shutdown"
+  exit 0
+fi
+case "$1" in
+  "  Lock")     hyprlock ;;
+  "⏾  Suspend")  systemctl suspend ;;
+  "  Logout")   hyprctl dispatch exit ;;
+  "  Reboot")   systemctl reboot ;;
+  "  Shutdown") systemctl poweroff ;;
+esac
+</code></pre>
+
+            <h5>~/.config/rofi/themes/launcher-alien.rasi</h5>
+            <pre><code>@import "../colors.rasi"
+
+configuration {
+  modi:                "drun";
+  show-icons:          true;
+  drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+  window-format:       "{w} · {c} · {t}";
+}
+
+window {
+  transparency:     "real";
+  location:         center;
+  anchor:           center;
+  fullscreen:       true;
+  width:            1366px;
+  height:           768px;
+
+  margin:           0px;
+  padding:          0px;
+  border:           0px;
+  background-color: @background;
+  cursor:           "default";
+}
+
+mainbox {
+  spacing:          20px;
+  padding:          22% 34%; /* centers the panel nicely */
+  background-color: transparent;
+  children:         [ "inputbar", "listview" ];
+}
+
+inputbar {
+  spacing:          10px;
+  padding:          20px;
+  border-radius:    20px;
+  background-color: @background-alt;
+  text-color:       @foreground;
+  children:         [ "entry" ];
+}
+
+entry {
+  background-color: transparent;
+  text-color:       inherit;
+  cursor:           text;
+  placeholder:      "Type to search apps…";
+  placeholder-color: inherit;
+  vertical-align:   0.5;
+  horizontal-align: 0.5;
+}
+
+listview {
+  columns:          1;
+  lines:            12;
+  cycle:            true;
+  dynamic:          true;
+  scrollbar:        false;
+
+  spacing:          10px;
+  padding:          30px;
+  border-radius:    20px;
+  background-color: @background-alt;
+  text-color:       @foreground;
+}
+
+element, element-text, element-icon, textbox, entry, listview {
+  background-color: transparent; /* kill any default white */
+}
+
+element {
+  spacing:          10px;
+  padding:          8px;
+  border-radius:    12px;
+  background-color: @background-alt; /* card row */
+  text-color:       @foreground;
+  cursor:           pointer;
+}
+
+element selected.normal {
+  background-color: @selected;
+  text-color:       #1a181a;
+}
+
+element-icon { size: 32px; }
+
+element-text {
+  highlight:        none;
+  vertical-align:   0.5;
+  horizontal-align: 0.0;
+}
+</code></pre>
+
+            <h5>~/.config/rofi/themes/power-alien.rasi</h5>
+            <pre><code>@import "../colors.rasi"
+
+configuration { show-icons: false; }
+
+* {
+  list-spacing:       16px;
+  element-padding:    15px 20px;
+  element-radius:     18px;
+  general-radius:     100%;
+  element-font:       "JetBrainsMono Nerd Font 16";
+}
+
+window {
+  transparency:       "real";
+  location:           center;
+  anchor:             center;
+  fullscreen:         false;
+  margin:             0px;
+  padding:            0px;
+  border:             0px;
+  background-color:   @background;
+  cursor:             "default";
+}
+
+mainbox {
+  spacing:            0px;
+  padding:            32px;
+  background-color:   transparent;
+  children:           [ "listview" ];
+}
+
+listview {
+  columns:            5;
+  lines:              1;
+  fixed-columns:      true;
+  fixed-height:       true;
+  dynamic:            false;
+  cycle:              true;
+  scrollbar:          false;
+  spacing:            var(list-spacing);
+  margin:             0px;
+  padding:            0px;
+
+  background-color:   transparent;
+  text-color:         @foreground;
+}
+
+element, element-text, element-icon, textbox {
+  background-color:   transparent;
+}
+
+element {
+  padding:            var(element-padding);
+  border-radius:      var(element-radius);
+  background-color:   @background-alt;
+  text-color:         @foreground;
+  cursor:             pointer;
+}
+
+element-text {
+  font:               var(element-font);
+  highlight:          none;
+  vertical-align:     0.5;
+  horizontal-align:   0.5;
+}
+
+element selected.normal {
+  background-color:   @selected;
+  text-color:         #1a181a;
+}
 </code></pre>
 
             <br />
@@ -884,6 +1087,11 @@ set statusbar-fg "#fff3f2"
 set statusbar-bg "#3b3366"
 
 set font "Monaspace Neon NF"
+
+set recolor true
+set recolor-lightcolor "#fff3f2"
+set recolor-darkcolor "#1a181a"
+set recolor-keephue true
 </code></pre>
 
             <br />
