@@ -233,11 +233,11 @@ hl.config({
   -- Overall shite
   -- +++++++++++++
   general = {
-    gaps_in           = 3,
+    gaps_in           = 2,
     gaps_out          = 8,
     border_size       = 2,
     layout            = "dwindle",
-    resize_on_border  = true,
+    resize_on_border  = false,
 
     col = {
       active_border = {
@@ -326,7 +326,7 @@ hl.on("hyprland.start", function()
 
     -- Wpp daemon
     hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("kitty -e /home/bxav/.local/bin/wall-default.sh")
+    hl.exec_cmd("kitty -e ~/.local/bin/wall-default.sh")
 
     -- Main
     hl.exec_cmd("waybar")
@@ -353,21 +353,20 @@ hl.window_rule({
     center = true,
 })
 
+hl.window_rule({
+	name = "brave-on-ws2",
+	match = { class = "^(brave)$"},
+	workspace = "2 silent",
+})
+
 -- Binds (mod = SUPER)
 -- +++++++++++++++++++
 -- Volume
--- ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
--- ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
--- " XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
-
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume.sh up"))
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume.sh down"))
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume.sh mute"))
 
 -- Brightness
--- ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
--- ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
-
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("~/.config/hypr/scripts/brightness.sh up"))
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.config/hypr/scripts/brightness.sh down"))
 
@@ -382,12 +381,10 @@ hl.bind("SUPER + A", hl.dsp.exec_cmd("aseprite"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("protonvpn-app"))
 hl.bind("SUPER + L", hl.dsp.exec_cmd("ledger-live-desktop"))
 hl.bind("SUPER + D", hl.dsp.exec_cmd("discord"))
-hl.bind("SUPER + M", hl.dsp.exec_cmd("/home/bxav/programs/monero-gui-v0.18.4.4/monero-wallet-gui"))
+hl.bind("SUPER + M", hl.dsp.exec_cmd("~/programs/monero-gui-v0.18.4.4/monero-wallet-gui"))
 
 -- Wallpaper
--- "SUPER + W, exec, rofi -show wallpaper -modi "wallpaper:~/.config/rofi/scripts/rofi-wallpaper.sh" -theme ~/.config/rofi/themes/b34uty-applet.rasi"
-
-hl.bind("SUPER + W", hl.dsp.exec_cmd("kitty -e /home/bxav/.local/bin/wallpaper-picker.sh"))
+hl.bind("SUPER + W", hl.dsp.exec_cmd("kitty -e ~/.local/bin/wallpaper-picker.sh"))
 
 -- Color picker
 hl.bind("SUPER + 0", hl.dsp.exec_cmd("~/bitpulse/shelles/cor.sh"))
@@ -438,16 +435,11 @@ hl.bind("SUPER + SHIFT + k", hl.dsp.window.move({ direction = "u" }))
 hl.bind("SUPER + SHIFT + j", hl.dsp.window.move({ direction = "d" }))
 
 -- Workspaces
-hl.bind("SUPER + 1", hl.dsp.focus({ workspace = 1 }))
-hl.bind("SUPER + 2", hl.dsp.focus({ workspace = 2 }))
-hl.bind("SUPER + 3", hl.dsp.focus({ workspace = 3 }))
-hl.bind("SUPER + 4", hl.dsp.focus({ workspace = 4 }))
-hl.bind("SUPER + 5", hl.dsp.focus({ workspace = 5 }))
-hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = 1 }))
-hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = 2 }))
-hl.bind("SUPER + SHIFT + 3", hl.dsp.window.move({ workspace = 3 }))
-hl.bind("SUPER + SHIFT + 4", hl.dsp.window.move({ workspace = 4 }))
-hl.bind("SUPER + SHIFT + 5", hl.dsp.window.move({ workspace = 5 }))
+for i = 1, 10 do
+	local key = i % 10 -- 10 maps to key 0
+	hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind("SUPER + SHIFT +" .. key, hl.dsp.window.move({ workspace = i }))
+end
 
 -- Mouse binds (Lofree Touch)
 -- M4 = 274 (wheel button),  M5 = 275 (thumb-back), M6 = 276 (thumb-front)
@@ -607,11 +599,11 @@ bind = SUPER,   A,      exec, aseprite
 bind = SUPER,   V,      exec, protonvpn-app
 bind = SUPER,   L,      exec, ledger-live-desktop
 bind = SUPER,   D,      exec, discord
-bind = SUPER,   M,      exec, /home/bxav/programs/monero-gui-v0.18.4.4/monero-wallet-gui
+bind = SUPER,   M,      exec, ~/programs/monero-gui-v0.18.4.4/monero-wallet-gui
 
 # Wallpaper
 # ---------
-bind = SUPER, W, exec, kitty -e /home/bxav/.local/bin/wallpaper-picker.sh
+bind = SUPER, W, exec, kitty -e ~/.local/bin/wallpaper-picker.sh
 #bind = SUPER, W, exec, rofi -show wallpaper -modi "wallpaper:~/.config/rofi/scripts/rofi-wallpaper.sh" -theme ~/.config/rofi/themes/b34uty-applet.rasi
 
 # Color picker
