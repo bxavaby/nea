@@ -260,6 +260,9 @@ hl.config({
     active_opacity     = 0.9,
     inactive_opacity   = 0.8,
     fullscreen_opacity = 1.0,
+    -- screen_shader = "~/.config/hypr/shaders/bv.frag",
+    -- screen_shader = "~/.config/hypr/shaders/crt.frag",
+    screen_shader = "~/.config/hypr/shaders/selene.frag",
 
     shadow = {
       enabled       = true,
@@ -353,12 +356,6 @@ hl.window_rule({
     center = true,
 })
 
-hl.window_rule({
-	name = "brave-on-ws2",
-	match = { class = "^(brave)$"},
-	workspace = "2 silent",
-})
-
 -- Binds (mod = SUPER)
 -- +++++++++++++++++++
 -- Volume
@@ -389,21 +386,15 @@ hl.bind("SUPER + W", hl.dsp.exec_cmd("kitty -e ~/.local/bin/wallpaper-picker.sh"
 -- Color picker
 hl.bind("SUPER + 0", hl.dsp.exec_cmd("~/bitpulse/shelles/cor.sh"))
 
--- Telegram Bot API and f2op-bot
--- "SUPER + 9, exec, ~/bitpulse/f2op-bot.sh"
-
 -- Screenshots / casts
 hl.bind("Print", hl.dsp.exec_cmd('grimblast copy output && notify-send "Screenshot" "Copied to clipboard"'))
 hl.bind("SUPER + Print", hl.dsp.exec_cmd("grimblast copy area"))
 hl.bind("SUPER + SHIFT + Print", hl.dsp.exec_cmd('grimblast save area "$HOME/Pictures/Screenshots/ss-$(date +%s).png" && notify-send "Screenshot saved"'))
 
 hl.bind("XF86Favorites", hl.dsp.exec_cmd("~/.local/bin/go-cast.sh"))
--- "SUPER + XF86Favorites, exec, notify-send "Bind works""
 hl.bind("SUPER + XF86Favorites", hl.dsp.exec_cmd("~/.config/hypr/scripts/region-cast.sh"))
 
 -- Logout / Power
--- "SUPER + Escape, exec, wlogout"
-
 hl.bind("SUPER + Escape", hl.dsp.exec_cmd('rofi -show power -modi "power:~/.config/rofi/scripts/power.sh" -theme ~/.config/rofi/themes/power-alien.rasi'))
 
 -- Window management
