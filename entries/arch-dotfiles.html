@@ -195,7 +195,269 @@
             </ul>
 
             <h3>Configs</h3>
-            <h5 id="wm">~/.config/hypr/hyprland.conf</h5>
+            <h5 id="wm">~/.config/hypr/hyprland.lua</h5>
+            <pre><code>-- +----------+
+-- | hyprconf |
+-- |    4     |
+-- | hyprland |
+-- | now .lua |
+-- +----------+
+
+-- Colors
+-- ++++++
+local colors_ok, colors = pcall(dofile, os.getenv("HOME") .. "/.cache/wal/colors.lua")
+
+if not colors_ok or type(colors) ~= "table" then
+  colors = {
+    primary    = "rgb(56bf70)",
+    secondary  = "rgb(8cff96)",
+    text       = "rgb(fff3f2)",
+    surface    = "rgb(acaab2)",
+    accent     = "rgb(8f7fb0)",
+    highlight  = "rgb(745380)",
+    background = "rgb(3b3366)",
+    crust      = "rgb(1a181a)",
+  }
+end
+
+-- Monitors
+-- ++++++++
+hl.monitor({
+  output   = "eDP-1",
+  mode     = "preferred",
+  position = "auto",
+  scale    = 1,
+})
+
+hl.config({
+  -- Overall shite
+  -- +++++++++++++
+  general = {
+    gaps_in           = 3,
+    gaps_out          = 8,
+    border_size       = 2,
+    layout            = "dwindle",
+    resize_on_border  = true,
+
+    col = {
+      active_border = {
+        colors = { colors.accent, colors.crust },
+        angle = 45,
+      },
+      inactive_border = colors.crust,
+    },
+  },
+
+  dwindle = {
+    preserve_split = true,
+    -- force_split = 2,
+  },
+
+  -- Decor
+  -- +++++
+  decoration = {
+    rounding           = 8,
+    active_opacity     = 0.9,
+    inactive_opacity   = 0.8,
+    fullscreen_opacity = 1.0,
+
+    shadow = {
+      enabled       = true,
+      range         = 12,
+      render_power  = 4,
+      color         = "rgba(00000044)",
+    },
+
+    blur = {
+      enabled           = true,
+      size              = 6,
+      passes            = 3,
+      new_optimizations = true,
+      ignore_opacity    = true,
+      noise             = 0.0117,
+      brightness        = 1.0,
+    },
+  },
+
+  -- Input
+  -- +++++
+  input = {
+    kb_layout    = "pt",
+    follow_mouse = 1,
+    sensitivity  = 0.2,
+
+    touchpad = {
+      natural_scroll = true,
+      scroll_factor  = 0.7,
+    },
+  },
+
+  -- Auto-hide cursor
+  -- ++++++++++++++++
+  -- cursor = {
+  --   inactive_timeout = 5,
+  -- },
+})
+
+-- Animationes
+-- +++++++++++
+hl.curve("wind", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
+hl.curve("winIn", { type = "bezier", points = { { 0.1, 1.1 }, { 0.1, 1.1 } } })
+hl.curve("winOut", { type = "bezier", points = { { 0.3, -0.3 }, { 0, 1 } } })
+hl.curve("linear", { type = "bezier", points = { { 1, 1 }, { 1, 1 } } })
+
+hl.animation({ leaf = "windows", enabled = true, speed = 6, bezier = "wind", style = "slide" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 6, bezier = "winIn", style = "slide" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 5, bezier = "winOut", style = "slide" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 5, bezier = "wind", style = "slide" })
+hl.animation({ leaf = "border", enabled = true, speed = 1, bezier = "linear" })
+hl.animation({ leaf = "borderangle", enabled = true, speed = 30, bezier = "linear", loop = true })
+hl.animation({ leaf = "fade", enabled = true, speed = 10, bezier = "default" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "wind" })
+
+-- Exec-once shite
+-- +++++++++++++++
+hl.on("hyprland.start", function()
+    hl.exec_cmd("dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+
+    -- Idle daemon 4 auto-locking & screen-off
+    hl.exec_cmd("hypridle")
+
+    -- Wpp daemon
+    hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("kitty -e /home/bxav/.local/bin/wall-default.sh")
+
+    -- Main
+    hl.exec_cmd("waybar")
+    -- hl.exec_cmd("kitty")
+    -- hl.exec_cmd("rofi -show drun")
+    hl.exec_cmd("nm-applet --indicator")
+    hl.exec_cmd("polkit-gnome-authentication-agent-1")
+
+    -- Notifications
+    hl.exec_cmd("mako")
+end)
+
+-- Open windows in tiled mode
+-- ++++++++++++++++++++++++++
+hl.window_rule({
+    name = "tile-aseprite",
+    match = { class = "^Aseprite$" },
+})
+
+hl.window_rule({
+    name = "protonvpn-size-center",
+    match = { class = "^protonvpn-app$" },
+    size = "400 600",
+    center = true,
+})
+
+-- Binds (mod = SUPER)
+-- +++++++++++++++++++
+-- Volume
+-- ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+-- ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
+-- " XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume.sh up"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume.sh down"))
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("~/.config/hypr/scripts/volume.sh mute"))
+
+-- Brightness
+-- ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
+-- ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("~/.config/hypr/scripts/brightness.sh up"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.config/hypr/scripts/brightness.sh down"))
+
+-- Launchers
+hl.bind("SUPER + Space", hl.dsp.exec_cmd("rofi -show drun -theme ~/.config/rofi/themes/launcher-alien.rasi"))
+hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("brave --enable-features=UseOzonePlatform --ozone-platform=wayland --force-device-scale-factor=1"))
+hl.bind("SUPER + T", hl.dsp.exec_cmd("thunar"))
+hl.bind("SUPER + Y", hl.dsp.exec_cmd("yazi"))
+hl.bind("SUPER + Z", hl.dsp.exec_cmd("zeditor"))
+hl.bind("SUPER + A", hl.dsp.exec_cmd("aseprite"))
+hl.bind("SUPER + V", hl.dsp.exec_cmd("protonvpn-app"))
+hl.bind("SUPER + L", hl.dsp.exec_cmd("ledger-live-desktop"))
+hl.bind("SUPER + D", hl.dsp.exec_cmd("discord"))
+hl.bind("SUPER + M", hl.dsp.exec_cmd("/home/bxav/programs/monero-gui-v0.18.4.4/monero-wallet-gui"))
+
+-- Wallpaper
+-- "SUPER + W, exec, rofi -show wallpaper -modi "wallpaper:~/.config/rofi/scripts/rofi-wallpaper.sh" -theme ~/.config/rofi/themes/b34uty-applet.rasi"
+
+hl.bind("SUPER + W", hl.dsp.exec_cmd("kitty -e /home/bxav/.local/bin/wallpaper-picker.sh"))
+
+-- Color picker
+hl.bind("SUPER + 0", hl.dsp.exec_cmd("~/bitpulse/shelles/cor.sh"))
+
+-- Telegram Bot API and f2op-bot
+-- "SUPER + 9, exec, ~/bitpulse/f2op-bot.sh"
+
+-- Screenshots / casts
+hl.bind("Print", hl.dsp.exec_cmd('grimblast copy output && notify-send "Screenshot" "Copied to clipboard"'))
+hl.bind("SUPER + Print", hl.dsp.exec_cmd("grimblast copy area"))
+hl.bind("SUPER + SHIFT + Print", hl.dsp.exec_cmd('grimblast save area "$HOME/Pictures/Screenshots/ss-$(date +%s).png" && notify-send "Screenshot saved"'))
+
+hl.bind("XF86Favorites", hl.dsp.exec_cmd("~/.local/bin/go-cast.sh"))
+-- "SUPER + XF86Favorites, exec, notify-send "Bind works""
+hl.bind("SUPER + XF86Favorites", hl.dsp.exec_cmd("~/.config/hypr/scripts/region-cast.sh"))
+
+-- Logout / Power
+-- "SUPER + Escape, exec, wlogout"
+
+hl.bind("SUPER + Escape", hl.dsp.exec_cmd('rofi -show power -modi "power:~/.config/rofi/scripts/power.sh" -theme ~/.config/rofi/themes/power-alien.rasi'))
+
+-- Window management
+hl.bind("SUPER + Q", hl.dsp.window.close())
+hl.bind("SUPER + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+hl.bind("SUPER + SHIFT + T", hl.dsp.window.float({ action = "toggle" }))
+hl.bind("SUPER + P", hl.dsp.window.pseudo())
+hl.bind("SUPER + J", hl.dsp.layout("togglesplit"))  -- Note: was k->u, l->r, added J for down?
+
+-- Reload Hyprland+Waybar
+hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/reload-dsk.sh"))
+
+-- Focus
+hl.bind("SUPER + h", hl.dsp.focus({ direction = "l" }))
+hl.bind("SUPER + l", hl.dsp.focus({ direction = "r" }))
+hl.bind("SUPER + k", hl.dsp.focus({ direction = "u" }))
+-- "SUPER + j, movefocus, d"
+
+-- Resize windows
+hl.bind("SUPER + CTRL + h", hl.dsp.exec_cmd("hyprctl dispatch resizeactive -30 0"))
+hl.bind("SUPER + CTRL + l", hl.dsp.exec_cmd("hyprctl dispatch resizeactive 30 0"))
+hl.bind("SUPER + CTRL + k", hl.dsp.exec_cmd("hyprctl dispatch resizeactive 0 -30"))
+hl.bind("SUPER + CTRL + j", hl.dsp.exec_cmd("hyprctl dispatch resizeactive 0 30"))
+
+-- Move windows
+hl.bind("SUPER + SHIFT + h", hl.dsp.window.move({ direction = "l" }))
+hl.bind("SUPER + SHIFT + l", hl.dsp.window.move({ direction = "r" }))
+hl.bind("SUPER + SHIFT + k", hl.dsp.window.move({ direction = "u" }))
+hl.bind("SUPER + SHIFT + j", hl.dsp.window.move({ direction = "d" }))
+
+-- Workspaces
+hl.bind("SUPER + 1", hl.dsp.focus({ workspace = 1 }))
+hl.bind("SUPER + 2", hl.dsp.focus({ workspace = 2 }))
+hl.bind("SUPER + 3", hl.dsp.focus({ workspace = 3 }))
+hl.bind("SUPER + 4", hl.dsp.focus({ workspace = 4 }))
+hl.bind("SUPER + 5", hl.dsp.focus({ workspace = 5 }))
+hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = 1 }))
+hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = 2 }))
+hl.bind("SUPER + SHIFT + 3", hl.dsp.window.move({ workspace = 3 }))
+hl.bind("SUPER + SHIFT + 4", hl.dsp.window.move({ workspace = 4 }))
+hl.bind("SUPER + SHIFT + 5", hl.dsp.window.move({ workspace = 5 }))
+
+-- Mouse binds (Lofree Touch)
+-- M4 = 274 (wheel button),  M5 = 275 (thumb-back), M6 = 276 (thumb-front)
+hl.bind("mouse:274", hl.dsp.window.fullscreen({ action = "toggle" }))
+hl.bind("mouse:275", hl.dsp.focus({ workspace = "e+1" }))
+-- ", mouse:276, killactive,"
+hl.bind("mouse:276", hl.dsp.exec_cmd("kitty"))
+</code></pre>
+
+            <h5>~/.config/hypr/hyprland.conf</h5>
             <pre><code>############
 # hyprconf #
 #     4    #
