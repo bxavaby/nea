@@ -1240,7 +1240,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Only my most useful
 alias vi='nvim'
-alias hx='helix'
 
 alias ls='exa --icons --group-directories-first --long --modified --header'
 alias la='exa -la --group-directories-first --icons --color=auto'
@@ -1250,8 +1249,7 @@ alias reload="source ~/.zshrc"
 alias meteora='curl wttr.in/City'
 alias getrack='yt-dlp --extract-audio --audio-format opus --output "~/Music/%(title)s.%(ext)s"'
 alias m="macchina"
-alias hyprconf="micro ~/.config/hypr/hyprland.conf"
-alias hyprcolors="micro ~/.config/hypr/colors.conf"
+alias hyprconf="micro ~/.config/hypr/hyprland.lua"
 
 
 eval "$(zoxide init zsh)"
