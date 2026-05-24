@@ -2,7 +2,7 @@
   "name": "nu-ea",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "theme.min.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
